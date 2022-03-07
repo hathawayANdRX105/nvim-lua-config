@@ -1,4 +1,4 @@
-local Comment = check_status('Comment')
+local Comment = Check_status('Comment')
 
 Comment.setup(
 {

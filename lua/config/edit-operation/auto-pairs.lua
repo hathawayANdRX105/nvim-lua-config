@@ -1,14 +1,13 @@
-require("util")
-local autopairs = check_status("nvim-autopairs")
+local autopairs = Check_status("nvim-autopairs")
 
 autopairs.setup({
-	check_ts = true, 
+	check_ts = true,
 })
 
 
 -- If you want insert `(` after select function or method item
-local cmp_autopairs = check_status('nvim-autopairs.completion.cmp')
-local cmp = check_status('cmp')
+local cmp_autopairs = Check_status('nvim-autopairs.completion.cmp')
+local cmp = Check_status('cmp')
 cmp.event:on( 'confirm_done', cmp_autopairs.on_confirm_done({  map_char = { tex = '' } }))
 
 

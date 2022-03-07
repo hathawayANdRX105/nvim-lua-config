@@ -10,8 +10,8 @@ local ui_opt_config = {
 	updatetime = 250,
 }
 
-load_global_set(ui_global_config)
-load_set(ui_opt_config)
+Load_global_set(ui_global_config)
+Load_set(ui_opt_config)
 
 vim.cmd[[colorscheme tokyonight]]
 

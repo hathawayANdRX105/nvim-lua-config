@@ -1,5 +1,5 @@
 local mappings_utils = require('renamer.mappings.utils')
-local renamer = check_status('renamer')
+local renamer = Check_status('renamer')
 
 renamer.setup {
     -- The popup title, shown if `border` is true

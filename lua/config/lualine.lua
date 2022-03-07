@@ -1,7 +1,7 @@
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
-local lualine = check_status('lualine')
+local lualine = Check_status('lualine')
 
 -- Color table for highlights
 -- stylua: ignore

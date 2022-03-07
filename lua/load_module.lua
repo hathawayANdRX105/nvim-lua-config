@@ -1,3 +1,4 @@
+require('util')
 
 local modules = {
 	'util',
@@ -24,9 +25,8 @@ local modules = {
 	'config.quick-browse.project',
 
 	'config.nvim-cmp',
-	'lsp.lsp-installer',
-	'lsp.signature',
-	'lsp.trouble',
+
+	'lsp',
 
 	'system-build',
 
@@ -34,7 +34,6 @@ local modules = {
 	'config.enhance-vision.indent',
 	'config.enhance-vision.treesitter',
 	'config.enhance-vision.renamer',
-	-- 'config.enhance-vision.transparent',
 
 	'config.git.gitsigns',
 	'config.git.neogit',
@@ -42,4 +41,4 @@ local modules = {
 }
 
 
-require('util').load_module(modules)
+Load_module(modules)

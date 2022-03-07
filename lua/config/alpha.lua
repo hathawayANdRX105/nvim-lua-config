@@ -1,4 +1,4 @@
-local alpha = check_status('alpha')
+local alpha = Check_status('alpha')
 
 -- copy from
 -- https://github.com/BeyondMagic/MaGiCK/blob/3763a6dfe2986081e13de14f0324eb1a72ace020/_config/nvim/lua/screen.lua

@@ -19,6 +19,7 @@ return {
           -- filetype
           command = 'go run ./main.go',
           output = 'quickfix',
+	  opts = { open_on_run = 'auto', }
         },
         build_and_run = { -- Setting the type to lua means the command
           -- is a lua function

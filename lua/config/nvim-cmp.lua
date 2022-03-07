@@ -1,7 +1,7 @@
-local util = require'util'
-local cmp = util.check_status("cmp")
 
-local luasnip = util.check_status("luasnip")
+local cmp = Check_status("cmp")
+
+local luasnip = Check_status("luasnip")
 
 require("luasnip/loaders/from_vscode").lazy_load()
 

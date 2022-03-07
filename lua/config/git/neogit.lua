@@ -1,4 +1,4 @@
-local neogit = check_status("neogit")
+local neogit = Check_status("neogit")
 
 neogit.setup {
   disable_signs = false,

@@ -1,4 +1,4 @@
-local project = check_status('project_nvim')
+local project = Check_status('project_nvim')
 
 -- keymap when telescope project
 --[[
@@ -52,6 +52,6 @@ project.setup({
   datapath = vim.fn.stdpath("data"),
 })
 
-local telescope = check_status('telescope')
+local telescope = Check_status('telescope')
 telescope.load_extension('projects')
 

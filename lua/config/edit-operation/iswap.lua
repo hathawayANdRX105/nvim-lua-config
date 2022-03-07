@@ -1,4 +1,4 @@
-local iswap = check_status('iswap')
+local iswap = Check_status('iswap')
 
 iswap.setup{
 	-- The keys that will be used as a selection, in order

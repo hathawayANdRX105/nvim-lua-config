@@ -1,4 +1,4 @@
-local yabs = check_status('yabs')
+local yabs = Check_status('yabs')
 
 
 local languages = {

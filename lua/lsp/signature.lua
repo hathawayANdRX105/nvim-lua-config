@@ -51,7 +51,7 @@ local cfg = {
 
 os.date("%H-%M", os.time())
 -- recommended:
-local signature = check_status('lsp_signature')
+local signature = Check_status('lsp_signature')
 signature.setup(cfg) -- no need to specify bufnr if you don't use toggle_key
 
 -- You can also do this inside lsp on_attach

@@ -1,4 +1,4 @@
-local transparent = check_status('transparent')
+local transparent = Check_status('transparent')
 
 transparent.setup({
   enable = true, -- boolean: enable transparent

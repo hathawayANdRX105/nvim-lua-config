@@ -12,8 +12,7 @@ if fn.empty(fn.glob(install_path)) > 0 then
 end
 --
 -- Have packer use a popup window
-local util = require("util")
-local packer = util.check_status("packer")
+local packer = Check_status("packer")
 packer.init {
   display = {
     open_fn = function()

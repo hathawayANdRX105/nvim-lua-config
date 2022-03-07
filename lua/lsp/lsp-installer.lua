@@ -1,5 +1,5 @@
-local util = require'util'
-local lsp_installer = util.check_status("nvim-lsp-installer")
+require'util'
+local lsp_installer = Check_status("nvim-lsp-installer")
 
 lsp_installer.settings({
     ui = {

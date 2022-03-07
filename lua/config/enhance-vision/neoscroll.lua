@@ -1,4 +1,4 @@
-local neoscroll = check_status('neoscroll')
+local neoscroll = Check_status('neoscroll')
 
 neoscroll.setup({
     -- All these keys will be mapped to their corresponding default scrolling animation

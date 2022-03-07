@@ -1,4 +1,4 @@
-telescope = check_status("telescope")
+telescope = Check_status("telescope")
 actions =require('telescope.actions')
 action_layout =require('telescope.actions.layout')
 

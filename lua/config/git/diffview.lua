@@ -1,5 +1,5 @@
 -- Lua
-local cb = check_status('diffview.config').diffview_callback
+local cb = Check_status('diffview.config').diffview_callback
 
 require'diffview'.setup {
   diff_binaries = false,    -- Show diffs for binaries

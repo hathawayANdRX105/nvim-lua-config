@@ -1,4 +1,4 @@
-local trouble = check_status('trouble')
+local trouble = Check_status('trouble')
 
 trouble.setup{
 	position = "bottom", -- position of the list can be: bottom, top, left, right

@@ -1,4 +1,3 @@
-local util = require('util')
-local hop = util.check_status('hop')
+local hop = Check_status('hop')
 
 hop.setup{ key = 'etovxqpdygfblzhckisuran' }

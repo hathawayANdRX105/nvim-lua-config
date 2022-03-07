@@ -60,4 +60,4 @@ local global_setup = {
 	}
 }
 
-util.load_global_set(global_setup)
+Load_global_set(global_setup)

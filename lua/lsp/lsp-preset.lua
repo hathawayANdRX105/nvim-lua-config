@@ -1,10 +1,11 @@
 require('common.ui')
-local util = require('util')
+require('util')
+
 local preset = {}
 -- illuminate : this plug will automatically highlight those existed symbols or words under cursor
 local function lsp_highlight_document(client)
   if client.resolved_capabilities.document_highlight then
-    local illuminate = util.check_status('illuminate')
+    local illuminate = Check_status('illuminate')
     illuminate.on_attach(client)
   end
 end
@@ -56,7 +57,7 @@ end
 
 -- capabilities
 local capabilities = vim.lsp.protocol.make_client_capabilities()
-local cmp_nvim_lsp = util.check_status("cmp_nvim_lsp")
+local cmp_nvim_lsp = Check_status("cmp_nvim_lsp")
 capabilities.textDocument.completion.completionItem.snippetSupport = true
 preset.capabilities = cmp_nvim_lsp.update_capabilities(capabilities)
 

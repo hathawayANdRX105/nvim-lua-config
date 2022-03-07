@@ -1,5 +1,5 @@
-local nvim_tree = check_status('nvim-tree')
-local nvim_tree_config = check_status('nvim-tree.config')
+local nvim_tree = Check_status('nvim-tree')
+local nvim_tree_config = Check_status('nvim-tree.config')
 
 local icons = require'config.icons'
 local tree_cb = nvim_tree_config.nvim_tree_callback

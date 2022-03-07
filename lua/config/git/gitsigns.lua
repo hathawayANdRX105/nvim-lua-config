@@ -1,4 +1,4 @@
-local gitsigns = check_status('gitsigns')
+local gitsigns = Check_status('gitsigns')
 
 gitsigns.setup {
   signs = {

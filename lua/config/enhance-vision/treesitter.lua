@@ -1,4 +1,4 @@
-local treesitter = check_status('nvim-treesitter.configs')
+local treesitter = Check_status('nvim-treesitter.configs')
 
 treesitter.setup {
 	 ensure_installed = { "go", "python", "lua", "vim", "markdown", "c", "cpp", },

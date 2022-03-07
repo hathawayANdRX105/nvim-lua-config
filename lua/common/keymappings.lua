@@ -1,5 +1,3 @@
-require('util')
-
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ','
 
@@ -62,4 +60,4 @@ local keymap_list = {
 }
 
 -- vim load keymap bindings
-load_keymap(keymap_list)
+Load_keymap(keymap_list)
