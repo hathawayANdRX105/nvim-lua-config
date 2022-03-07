@@ -1,5 +1,4 @@
 require('common.ui')
-require('util')
 
 local preset = {}
 -- illuminate : this plug will automatically highlight those existed symbols or words under cursor

@@ -1,4 +1,3 @@
-require'util'
 local lsp_installer = Check_status("nvim-lsp-installer")
 
 lsp_installer.settings({
