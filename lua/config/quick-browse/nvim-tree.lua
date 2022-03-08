@@ -7,30 +7,6 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 
-vim.g.nvim_tree_icons = {
-     default = "",
-     symlink = "",
-     git = {
-       unstaged = "✗",
-       staged = "✓",
-       unmerged = "",
-       renamed = "➜",
-       untracked = "★",
-       deleted = "",
-       ignored = "◌",
-     },
-     folder = {
-       arrow_open = "",
-       arrow_closed = "",
-       default = "",
-       open = "",
-       empty = "",
-       empty_open = "",
-       symlink = "",
-       symlink_open = "",
-     }
-}
-
 nvim_tree.setup {
   disable_netrw        = false,
   hijack_netrw         = true,

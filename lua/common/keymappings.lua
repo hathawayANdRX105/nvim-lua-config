@@ -3,8 +3,6 @@ vim.g.maplocalleader = ','
 
 local opt = { noremap=true, silent=true }
 
---keymap('n', '<space>', '<NOP', opt)
---keymap('n', '<leader>h', ':set hlsearch!<CR>', opt)
 
 local keymap_list = {
 	-- setup leader

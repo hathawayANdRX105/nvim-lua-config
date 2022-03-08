@@ -46,8 +46,17 @@ return require('packer').startup(function(use)
 
 	-- colorscheme
 	--use 'EdenEast/nightfox.nvim'
-	--use 'bluz71/vim-nightfly-guicolors'
+	use 'bluz71/vim-nightfly-guicolors'
 	use 'folke/tokyonight.nvim'
+	use({
+	    'rose-pine/neovim',
+	    as = 'rose-pine',
+	    tag = 'v1.*',
+	    config = function()
+		vim.cmd('colorscheme rose-pine')
+	    end
+	})
+	use "rebelot/kanagawa.nvim"
 
 	-- quick brwose
 	use 'nvim-lua/plenary.nvim'			-- need
