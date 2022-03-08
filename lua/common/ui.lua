@@ -3,6 +3,7 @@ local ui_global_config = {
 	tokyonight_italic_functions = true,
 	tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" },
 	tokyonight_colors = { hint = "orange", error = "#ff0000" },
+	registers_return_symbol = "↵",
 }
 
 local ui_opt_config = {

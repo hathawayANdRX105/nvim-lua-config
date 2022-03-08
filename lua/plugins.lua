@@ -31,7 +31,10 @@ vim.cmd [[
 ]]
 
 return require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim'
+	use 'wbthomason/packer.nvim'
+
+	-- speed up startup
+	use 'lewis6991/impatient.nvim' 			-- cache require module
 
 	-- ui
 	-- bufferline / nvim-tree / lualine need icon plugin
@@ -93,6 +96,7 @@ return require('packer').startup(function(use)
 	use 'lukas-reineke/indent-blankline.nvim'	-- indent
 	use 'xiyaowong/nvim-transparent'		-- transparent background
 	use 'filipdutescu/renamer.nvim'			-- lsp rename with popmenu
+	use "tversteeg/registers.nvim" 			-- pop show the context of register
 
 	-- git
 	use 'lewis6991/gitsigns.nvim'			-- git sign

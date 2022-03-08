@@ -11,6 +11,13 @@ local leader_maps = {
 
 	},
 
+	v = {
+		name = "+View",
+		c = { "<cmd>LuaCacheClear<CR>", 	"cache-clear" },
+		l = { "<cmd>LuaCacheLog<CR>", 		"cache-log" },
+		p = { "<cmd>LuaCacheProfile<CR>",	"cache-profile"},
+	},
+
 	w = {
 		name = "+Window",
 		h = { "<C-W>h", "to-left" },
@@ -158,7 +165,6 @@ local leader_maps = {
 local localleader_mappings = {
 	name = "+LocalLeader",
 	s = { "<cmd>SymbolsOutline<CR>",	"Symbols-outline"},
-
 }
 
 local g_mappings = {
