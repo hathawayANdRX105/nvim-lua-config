@@ -18,7 +18,7 @@ function Load_keymap(keymap_list)
 	local keymap = vim.api.nvim_set_keymap
 
 	for i = 1, #keymap_list do
-		key = keymap_list[i]
+		local key = keymap_list[i]
 		keymap(key['mode'], key['key'], key['map'], key['opt'])
 	end
 end
@@ -31,6 +31,12 @@ function Load_module(modules)
 	end
 end
 
+-- load cmd
+function Load_cmd(cmds)
+	for i = 1, #cmds do
+		vim.cmd(cmds[i])
+	end
+end
 
 -- check loading modules status
 

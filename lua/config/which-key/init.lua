@@ -202,12 +202,20 @@ local left_bracket_mappings = {
 	name = "+Prev-Nav",
 	c = { "&diff ? ']c' : '<cmd>Gitsigns prev_hunk<CR>'" ,		"prev-hunk" },
 	t = { '<cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>' ,		"prev-trouble" },
+	d = {
+		[[ <cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
+		'prev-diagnostic'
+	},
 }
 
 local right_bracket_mappings = {
 	name = "+Next-Nav",
 	c = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'" ,		"next-hunk" },
 	t = { '<cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>' ,		"next-trouble" },
+	d = {
+		[[ <cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
+		'prev-diagnostic'
+	},
 }
 
 local setup = {
