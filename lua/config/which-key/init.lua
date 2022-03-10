@@ -164,7 +164,10 @@ local leader_maps = {
 
 local localleader_mappings = {
 	name = "+LocalLeader",
-	s = { "<cmd>SymbolsOutline<CR>",	"Symbols-outline"},
+	s = { "<cmd>SymbolsOutline<CR>",			"Symbols-outline"},
+	r = { "<cmd>lua require('yabs'):run_task('run')<CR>",	"task-run"},
+	t = { "<cmd>lua require('yabs'):run_task('test')<CR>",	"task-test"},
+	b = { "<cmd>lua require('yabs'):run_task('build')<CR>",	"task-build"},
 }
 
 local g_mappings = {

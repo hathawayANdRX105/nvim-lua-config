@@ -3,6 +3,7 @@ local yabs = Check_status('yabs')
 local languages = {
 	go = require'system-build.config.go',
 	python = require'system-build.config.python',
+	c = require'system-build.config.c',
 }
 
 yabs:setup({

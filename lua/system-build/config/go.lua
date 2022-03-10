@@ -37,7 +37,7 @@ return {
                 -- you can omit extra arguments or
                 -- skip some of them using _ for the name
                 if exit_code == 0 then
-                  require('yabs').languages.c:run_task('run')
+                  require('yabs').languages.go:run_task('run')
                 end
               end,
             })
