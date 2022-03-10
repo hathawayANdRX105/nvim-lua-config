@@ -35,6 +35,8 @@ local modules = {
 	'config.enhance-vision.treesitter',
 	'config.enhance-vision.renamer',
 
+	'config.toggleterm',
+
 	'config.git.gitsigns',
 	'config.git.neogit',
 	'config.git.diffview',

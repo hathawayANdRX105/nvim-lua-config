@@ -1,8 +1,12 @@
 local which_key = Check_status("which-key")
 
 local leader_maps = {
-	["e"] = { "<cmd>NvimTreeToggle<CR>", "Explorer" },
-
+	['`'] = { "<cmd>SymbolsOutline<CR>", "symbols" },
+	["1"] = { "<cmd>NvimTreeToggle<CR>", "explorer" },
+	["2"] = { "<cmd>Telescope file_browser<CR>", "file-browser" },
+	["3"] = { "<cmd>ToggleTerm<CR>", "terminal" },
+	['4'] = { "<cmd>Telescop projects<CR>", "switch-projects" },
+	['0'] = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
 	d = {
 		name = "+Debug",
 		d = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
@@ -69,7 +73,7 @@ local leader_maps = {
 
 	p = {
 		name = "+Project",
-		p = { "<cmd>Telescop projects<CR>", "search-string" },
+		p = { "<cmd>Telescop projects<CR>", "switch-projects" },
 		s = { "<cmd>Telescop grep_string<CR>", "search-string" },
 		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols", },
 		w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Diagnostics", },
@@ -81,7 +85,6 @@ local leader_maps = {
 	q = {
 		name = "+Session",
 		q = { "<cmd>qa!<CR>", "quit-nvim" },
-		s = { "<cmd>Alpha<CR>", "startup" },
 	},
 
 	l = {
@@ -164,11 +167,14 @@ local leader_maps = {
 
 local localleader_mappings = {
 	name = "+LocalLeader",
-	s = { "<cmd>SymbolsOutline<CR>",			"Symbols-outline"},
-	r = { "<cmd>lua require('yabs'):run_task('run')<CR>",	"task-run"},
+	r = { "<cmd>lua require('yabs'):default_task()<CR>",	"task-run"},
 	t = { "<cmd>lua require('yabs'):run_task('test')<CR>",	"task-test"},
 	b = { "<cmd>lua require('yabs'):run_task('build')<CR>",	"task-build"},
+
+	s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
+	f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
 }
+
 
 local g_mappings = {
 	name = "+goto",
@@ -303,11 +309,11 @@ end
 
 local leader_opts = setup_opts("n", "<leader>", nil, true, true, true)
 local g_opts = setup_opts("n", "g", nil, true, true, true)
-local localleader_opts = setup_opts("n", "<localleader>", nil, true, true, true)
 local g_vmode_opts = setup_opts("v", "g", nil, true, true, true)
 local left_bracket_opts = setup_opts("n", "[", nil, true, true, true)
 local right_bracket_opts = setup_opts("n", "]", nil, true, true, true)
 
+local localleader_opts = setup_opts("n", "<localleader>", nil, true, true, true)
 
 which_key.setup(setup)
 which_key.register(leader_maps, leader_opts)

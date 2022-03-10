@@ -73,8 +73,9 @@ return require('packer').startup(function(use)
 	use 'mizlan/iswap.nvim'				-- swap
 
 	-- project manage
-	use "ahmedkhalf/project.nvim"			-- project switch
-	use 'pianocomposer321/yabs.nvim'		-- code run
+	use "ahmedkhalf/project.nvim"				-- project switch
+	use 'pianocomposer321/yabs.nvim'			-- code run
+	use { 'michaelb/sniprun', run = 'bash ./install.sh'}	-- snip run for py
 
 	--
 	-- lsp
@@ -93,6 +94,8 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lua'
 	use 'saadparwaiz1/cmp_luasnip'
 
+	-- terminal integration
+	use "akinsho/toggleterm.nvim"
 
 
 	-- snippets

@@ -11,8 +11,6 @@ local keymap_list = {
 	{ mode='n', key = '<C-n>', map = '<Down>', opt=opt },
 	{ mode='n', key = '<C-b>', map = '<Left>', opt=opt },
 
-	-- { mode='n', key = '<leader>h', map = ':set hlsearch!<CR>', opt=opt },
-
 	-- localleader keymappings
 	{ mode='n', key = '<localleader>p', map = '"+p', opt=opt },
 	{ mode='v', key = '<localleader>p', map = '"+p', opt=opt },

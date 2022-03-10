@@ -10,8 +10,6 @@ telescope.setup{
     mappings = {
       i = {
         ["<M-p"]  = action_layout.toggle_preview,
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
 
         ["<C-j>"] = actions.move_selection_next,
         ["<C-n>"] = actions.move_selection_next,
@@ -83,7 +81,8 @@ extensions = {
 	      -- theme = "ivy",
 	      mappings = { ["i"] = { }, ["n"] = { }, },
 	},
-}
+	},
 }
 
-require("telescope").load_extension "file_browser"
+require("telescope").load_extension"file_browser"
+require("telescope").load_extension"yabs"
