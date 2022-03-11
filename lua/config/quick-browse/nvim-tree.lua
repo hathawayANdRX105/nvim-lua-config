@@ -8,16 +8,20 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 
 nvim_tree.setup {
-  disable_netrw        = false,
+  disable_netrw        = true,
   hijack_netrw         = true,
   open_on_setup        = false,
   ignore_buffer_on_setup = false,
   ignore_ft_on_setup   = {},
-  auto_close           = false,
+  auto_close           = true,
   auto_reload_on_write = true,
-  open_on_tab          = false,
+  open_on_tab          = true,
   hijack_cursor        = false,
-  update_cwd           = false,
+  update_cwd           = true,
+  update_to_buf_dir    = {
+		enable = true,
+		auto_open = true,
+	},
   hijack_unnamed_buffer_when_opening = false,
   hijack_directories   = {
     enable = true,
@@ -33,8 +37,8 @@ nvim_tree.setup {
     }
   },
   update_focused_file = {
-    enable      = false,
-    update_cwd  = false,
+    enable      = true,
+    update_cwd  = true,
     ignore_list = {}
   },
   system_open = {
@@ -73,22 +77,11 @@ nvim_tree.setup {
     cmd = "trash",
     require_confirm = true
   },
-  actions = {
-    change_dir = {
-      enable = true,
-      global = false,
-    },
-    open_file = {
-      quit_on_open = false,
-      resize_window = false,
-      window_picker = {
-        enable = true,
-        chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890",
-        exclude = {
-          filetype = { "notify", "packer", "qf", "diff", "fugitive", "fugitiveblame", },
-          buftype  = { "nofile", "terminal", "help", },
-        }
-      }
-    }
-  }
+  show_icons = {
+		git = 1,
+		folders = 1,
+		files   = 1,
+		folder_arrows = 1,
+		tree_width    = 1,
+	},
 }
