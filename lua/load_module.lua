@@ -34,6 +34,7 @@ local modules = {
 	'config.enhance-vision.indent',
 	'config.enhance-vision.treesitter',
 	'config.enhance-vision.renamer',
+	'config.enhance-vision.bqf',
 
 	'config.toggleterm',
 
@@ -44,3 +45,4 @@ local modules = {
 
 
 Load_module(modules)
+

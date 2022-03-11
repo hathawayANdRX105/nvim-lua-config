@@ -74,8 +74,8 @@ return require('packer').startup(function(use)
 
 	-- project manage
 	use "ahmedkhalf/project.nvim"				-- project switch
-	use 'pianocomposer321/yabs.nvim'			-- code run
 	use { 'michaelb/sniprun', run = 'bash ./install.sh'}	-- snip run for py
+	use 'skywind3000/asyncrun.vim'
 
 	--
 	-- lsp
@@ -110,6 +110,7 @@ return require('packer').startup(function(use)
 	use 'xiyaowong/nvim-transparent'		-- transparent background
 	use 'filipdutescu/renamer.nvim'			-- lsp rename with popmenu
 	use "tversteeg/registers.nvim" 			-- pop show the context of register
+	use {'kevinhwang91/nvim-bqf', ft = 'qf'}	-- better quick-fix
 
 	-- git
 	use 'lewis6991/gitsigns.nvim'			-- git sign

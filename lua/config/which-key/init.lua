@@ -167,9 +167,10 @@ local leader_maps = {
 
 local localleader_mappings = {
 	name = "+LocalLeader",
-	r = { "<cmd>lua require('yabs'):default_task()<CR>",	"task-run"},
-	t = { "<cmd>lua require('yabs'):run_task('test')<CR>",	"task-test"},
-	b = { "<cmd>lua require('yabs'):run_task('build')<CR>",	"task-build"},
+	r = { "<cmd>lua Run()<CR>",	"task-run"},
+	t = { "<cmd>lua TestProject()<CR>",	"task-test"},
+	b = { "<cmd>lua AsyncRunByOpts('build')<CR>",	"task-build"},
+	q = { "<cmd>lua QfToggle()<CR>", "quickfix-list" },
 
 	s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
 	f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },

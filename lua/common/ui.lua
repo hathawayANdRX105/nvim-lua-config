@@ -11,6 +11,7 @@ local ui_global_config = {
 	nightflyCursorColor = 1,
 	nightflyTransparent = 1,
 	nightflyUnderlineMatchParen = 1,
+	asyncrun_open = 10,
  }
 
 local ui_opt_config = {
@@ -37,6 +38,19 @@ local cmds = {
 	[[hi default link RenamerBorder RenamerNormal]],
 	[[hi default link RenamerTitle Identifier]],
 	[[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]],
+
+
+	-- highlight quickfix list
+	[[syn match QuickFixWarn /warning/]],
+	[[syn match QuickFixWarn /warn/]],
+	[[syn match QuickFixErr /error/]],
+	[[syn match QuickFixNote /note/]],
+	[[hi def link     QuickFixErr         Function]],
+	[[hi def link     QuickFixWarn         Function]],
+	[[hi def link     QuickFixNote         Function]],
+	[[hi QuickFixErr guifg=red]],
+	[[hi QuickFixWarn guifg=yellow]],
+	[[hi QuickFixNote guifg=green]],
 }
 
 Load_global_set(ui_global_config)

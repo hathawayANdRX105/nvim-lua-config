@@ -51,7 +51,6 @@ local keymap_list = {
 	{ mode='i', key = '<F2>', 	map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
 	{ mode='n', key = '<F2>', 	map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
 	{ mode='v', key = '<leader>lr', map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
-	-- { mode='n', key = '<leader>lr', map = '<cmd>lua require("renamer").rename()<cr>', opt=opt }, -- this add in which-key mapping
 
 }
 

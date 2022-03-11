@@ -15,3 +15,14 @@ function TableSize(table)
 
 	return 0
 end
+
+function QfToggle()
+	if vim.bo.filetype == "qf" then
+		vim.cmd([[cclose]])
+	else
+		vim.cmd([[copen 12]])
+	end
+end
+
+-- vim.cmd[[command! Toggle execute ':lua QfToggle()']]
+
