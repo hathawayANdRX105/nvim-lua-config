@@ -77,7 +77,7 @@ return require('packer').startup(function(use)
 	use { 'michaelb/sniprun', run = 'bash ./install.sh'}	-- snip run for py
 	use 'skywind3000/asyncrun.vim'
 
-	--
+
 	-- lsp
 	-- Collection of configurations for the built-in LSP client
 	use 'neovim/nvim-lspconfig'
@@ -111,6 +111,7 @@ return require('packer').startup(function(use)
 	use 'filipdutescu/renamer.nvim'			-- lsp rename with popmenu
 	use "tversteeg/registers.nvim" 			-- pop show the context of register
 	use {'kevinhwang91/nvim-bqf', ft = 'qf'}	-- better quick-fix
+	use "beauwilliams/focus.nvim"			-- window focus
 
 	-- git
 	use 'lewis6991/gitsigns.nvim'			-- git sign

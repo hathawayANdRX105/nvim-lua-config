@@ -34,8 +34,8 @@ local leader_maps = {
 		K = { "<C-W>K", "move-up"   },
 		L = { "<C-W>L", "move-right"},
 
-		s = { "<C-w>s", "split"},
-		v = { "<C-w>v", "vertical"},
+		s = { "<cmd>lua require'focus'.split_command('j')<CR>", "split"},
+		v = { "<cmd>lua require'focus'.split_command('l')<CR>", "vertical"},
 
 		n = { "<C-w>w", "win-next"},
 		p = { "<C-w>p", "win-prev"},

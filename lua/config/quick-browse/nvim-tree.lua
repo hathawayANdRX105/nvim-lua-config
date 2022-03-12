@@ -4,6 +4,8 @@ local nvim_tree_config = Check_status('nvim-tree.config')
 local icons = require'config.icons'
 local tree_cb = nvim_tree_config.nvim_tree_callback
 
+vim.g.nvim_tree_indent_markers = 1
+
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 
@@ -16,12 +18,8 @@ nvim_tree.setup {
   auto_close           = true,
   auto_reload_on_write = true,
   open_on_tab          = true,
-  hijack_cursor        = false,
+  hijack_cursor        = true,
   update_cwd           = true,
-  update_to_buf_dir    = {
-		enable = true,
-		auto_open = true,
-	},
   hijack_unnamed_buffer_when_opening = false,
   hijack_directories   = {
     enable = true,
@@ -37,8 +35,8 @@ nvim_tree.setup {
     }
   },
   update_focused_file = {
-    enable      = true,
-    update_cwd  = true,
+    enable      = false,
+    update_cwd  = false,
     ignore_list = {}
   },
   system_open = {
@@ -49,11 +47,12 @@ nvim_tree.setup {
     dotfiles = false,
     custom = {}
   },
-  git = {
-    enable = true,
-    ignore = true,
-    timeout = 500,
-  },
+  -- default git integration
+  -- git = {
+    -- enable = true,
+    -- ignore = true,
+    -- timeout = 400,
+  -- },
   view = {
     width = 30,
     height = 30,
