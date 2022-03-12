@@ -15,9 +15,9 @@ local modules = {
 	'config.edit-operation.comment',
 	'config.edit-operation.auto-pairs',
 
-	--'config.alpha',
-	'config.lualine',
-	'config.bufferline',
+	'config.ui.alpha',
+	'config.ui.lualine',
+	'config.ui.bufferline',
 
 	'config.quick-browse.telescope',
 	'config.quick-browse.symbols-outline',

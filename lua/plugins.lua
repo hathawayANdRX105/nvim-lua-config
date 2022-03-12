@@ -43,6 +43,7 @@ return require('packer').startup(function(use)
 	use 'akinsho/bufferline.nvim'			-- buffer line
 	use 'nvim-lualine/lualine.nvim'			-- status line
 	use 'goolord/alpha-nvim'			-- Startup screen
+	-- use 'glepnir/dashboard-nvim'				-- Startup screen
 
 	-- colorscheme
 	--use 'EdenEast/nightfox.nvim'

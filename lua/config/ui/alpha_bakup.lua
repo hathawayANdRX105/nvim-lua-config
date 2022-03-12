@@ -96,44 +96,6 @@ local Headers = {
     [[\ \_\ \_\ \____\ \____/\ \___/  \ \_\ \_\ \_\ \_\]],
     [[ \/_/\/_/\/____/\/___/  \/__/    \/_/\/_/\/_/\/_/]],
   },
-
-  {
-    "            :h-                                  Nhy`               ",
-    "           -mh.                           h.    `Ndho               ",
-    "           hmh+                          oNm.   oNdhh               ",
-    "          `Nmhd`                        /NNmd  /NNhhd               ",
-    "          -NNhhy                      `hMNmmm`+NNdhhh               ",
-    "          .NNmhhs              ```....`..-:/./mNdhhh+               ",
-    "           mNNdhhh-     `.-::///+++////++//:--.`-/sd`               ",
-    "           oNNNdhhdo..://++//++++++/+++//++///++/-.`                ",
-    "      y.   `mNNNmhhhdy+/++++//+/////++//+++///++////-` `/oos:       ",
-    " .    Nmy:  :NNNNmhhhhdy+/++/+++///:.....--:////+++///:.`:s+        ",
-    " h-   dNmNmy oNNNNNdhhhhy:/+/+++/-         ---:/+++//++//.`         ",
-    " hd+` -NNNy`./dNNNNNhhhh+-://///    -+oo:`  ::-:+////++///:`        ",
-    " /Nmhs+oss-:++/dNNNmhho:--::///    /mmmmmo  ../-///++///////.       ",
-    "  oNNdhhhhhhhs//osso/:---:::///    /yyyyso  ..o+-//////////:/.      ",
-    "   /mNNNmdhhhh/://+///::://////     -:::- ..+sy+:////////::/:/.     ",
-    "     /hNNNdhhs--:/+++////++/////.      ..-/yhhs-/////////::/::/`    ",
-    "       .ooo+/-::::/+///////++++//-/ossyyhhhhs/:///////:::/::::/:    ",
-    "       -///:::::::////++///+++/////:/+ooo+/::///////.::://::---+`   ",
-    "       /////+//++++/////+////-..//////////::-:::--`.:///:---:::/:   ",
-    "       //+++//++++++////+++///::--                 .::::-------::   ",
-    "       :/++++///////////++++//////.                -:/:----::../-   ",
-    "       -/++++//++///+//////////////               .::::---:::-.+`   ",
-    "       `////////////////////////////:.            --::-----...-/    ",
-    "        -///://////////////////////::::-..      :-:-:-..-::.`.+`    ",
-    "         :/://///:///::://::://::::::/:::::::-:---::-.-....``/- -   ",
-    "           ::::://::://::::::::::::::----------..-:....`.../- -+oo/ ",
-    "            -/:::-:::::---://:-::-::::----::---.-.......`-/.      ``",
-    "           s-`::--:::------:////----:---.-:::...-.....`./:          ",
-    "          yMNy.`::-.--::..-dmmhhhs-..-.-.......`.....-/:`           ",
-    "         oMNNNh. `-::--...:NNNdhhh/.--.`..``.......:/-              ",
-    "        :dy+:`      .-::-..NNNhhd+``..`...````.-::-`                ",
-    "                        .-:mNdhh:.......--::::-`                    ",
-    "                           yNh/..------..`                          ",
-    "                                                                    ",
-  }
-
 }
 
 -- Create button for initial keybind.
@@ -170,24 +132,30 @@ local function button(sc, txt, keybind, keybind_opts)
   }
 end
 
+local dashboard = require "alpha.themes.dashboard"
+
+
 local buttons = {
   type = "group",
   val = {
-    button("e", "  New Buffer",            ':tabnew<CR>'),
-    button("f", "  Find file",             ':Telescope find_files<CR>'),
-    button("h", "  Recently opened files", ':Telescope oldfiles<CR>'),
-    button("r", "  Frecency/MRU",          ':Telescope oldfiles<CR>'),
-    button("g", "  Open Last Session",     ':source ~/.config/nvim/session.vim<CR>'),
-    button("m", "  Word Finder",           ':Telescope live_grep<CR>'),
-    button("q", "  Quit",                  ':quitall!<CR>'),
+    dashboard.button("e", "  New Buffer",            ':tabnew<CR>'),
+    dashboard.button("f", "  Find file",             ':Telescope find_files<CR>'),
+    dashboard.button("h", "  Recently opened files", ':Telescope oldfiles<CR>'),
+    --dashboard.button("r", "  Frecency/MRU",          ':Telescope oldfiles<CR>'),
+    -- dashboard.button("g", "  Open Last Session",     ':source ~/.config/nvim/session.vim<CR>'),
+    dashboard.button("i", "  Open private nvim-config",     ':e $MYVIMRC<CR>'),
+    --dashboard.button("m", "  Word Finder",           ':Telescope live_grep<CR>'),
+    dashboard.button("p", "  Project",                  ':Telescope projects<CR>'),
+    -- dashboard.button("q", "  Bookmark",                  ':quitall!<CR>'),
+    dashboard.button("q", "  Quit",                  ':quitall!<CR>'),
   },
   opts = {
-    spacing = 1
+    spacing = 1,
+    hl = "Keyword",
   }
 }
 
--- math.randomseed(os.time()) -- For random header.
-local load_header = {
+local header = {
 	type = "text",
 	val  = Headers[5],
 	opts = {
@@ -202,16 +170,15 @@ local footer = {
   -- https://github.com/BeyondMagic/scripts/blob/master/quotes/rdn
   -- Which returns one to three lines, being each divided by a line break.
   -- Or just an array: { "I see you:", "Above you." }
-  val = "okeydokey nie!",
+  val = "Okeydokey!",
   opts = {
     position = "center",
     hl = "Type",
   }
 }
 
-local dashboard = require "alpha.themes.dashboard"
 local section  = {
-	header = load_header,
+	header = header,
 	buttons = buttons,
 	footer = footer,
 }
@@ -221,7 +188,7 @@ local section  = {
 --
 
 local ol = { -- occupied lines
-  icon = #load_header.val,            -- CONST: number of lines that your header will occupy
+  icon = #header.val,            -- CONST: number of lines that your header will occupy
   message = 1 + #footer.val,             -- CONST: because of padding at the bottom
   length_buttons = #buttons.val * 2 - 1, -- CONST: it calculate the number that buttons will occupy
   neovim_lines = 3,                      -- CONST: 2 of command line, 1 of the top bar
@@ -246,7 +213,8 @@ local opts = {
     { type = "padding", val = bottom_padding },
   },
   opts = {
-    margin = 5
+    margin = 5,
+
   },
 }
 dashboard.opts = opts
