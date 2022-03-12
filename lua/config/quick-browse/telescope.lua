@@ -1,6 +1,6 @@
-telescope = Check_status("telescope")
-actions =require('telescope.actions')
-action_layout =require('telescope.actions.layout')
+local telescope = Check_status("telescope")
+local actions =require('telescope.actions')
+local action_layout =require('telescope.actions.layout')
 
 
 telescope.setup{
@@ -82,6 +82,14 @@ extensions = {
 	      mappings = { ["i"] = { }, ["n"] = { }, },
 	},
 	},
+	["ui-select"] = {
+	      require("telescope.themes").get_dropdown {
+		preview = false,
+		}
+	},
+
 }
 
-require("telescope").load_extension"file_browser"
+telescope.load_extension('file_browser')
+telescope.load_extension('ui-select')
+--telescope.load_extension('sessions')

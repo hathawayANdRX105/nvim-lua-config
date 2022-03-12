@@ -19,6 +19,7 @@ local modules = {
 	'config.ui.lualine',
 	'config.ui.bufferline',
 
+	'config.session',
 	'config.quick-browse.telescope',
 	'config.quick-browse.symbols-outline',
 	'config.quick-browse.nvim-tree',

@@ -62,6 +62,7 @@ return require('packer').startup(function(use)
 	-- quick brwose
 	use 'nvim-lua/plenary.nvim'			-- need
 	use 'nvim-telescope/telescope.nvim'		-- telescope switch
+	use {'nvim-telescope/telescope-ui-select.nvim' }-- telescope ui
 	use 'kyazdani42/nvim-tree.lua'			-- Explorer
 	use 'simrat39/symbols-outline.nvim'		-- symbols outline
 	use "nvim-telescope/telescope-file-browser.nvim"-- telescope browser
@@ -76,7 +77,8 @@ return require('packer').startup(function(use)
 	-- project manage
 	use "ahmedkhalf/project.nvim"				-- project switch
 	use { 'michaelb/sniprun', run = 'bash ./install.sh'}	-- snip run for py
-	use 'skywind3000/asyncrun.vim'
+	use 'skywind3000/asyncrun.vim'				-- code run
+	use 'Shatur/neovim-session-manager'			-- session
 
 
 	-- lsp
