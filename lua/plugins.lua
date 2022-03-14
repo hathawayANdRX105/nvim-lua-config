@@ -1,7 +1,7 @@
 local fn = vim.fn
 local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
 if fn.empty(fn.glob(install_path)) > 0 then
-	packer_bootstrap = fn.system({
+	_ = fn.system({
 		'git',
 		'clone',
 		'--depth',
@@ -9,8 +9,9 @@ if fn.empty(fn.glob(install_path)) > 0 then
 		'https://github.com/wbthomason/packer.nvim',
 		install_path,
 	})
+	vim.cmd [[packadd packer.nvim]]
 end
---
+
 -- Have packer use a popup window
 local packer = Check_status("packer")
 packer.init {
@@ -124,6 +125,22 @@ return require('packer').startup(function(use)
 	-- debug
 	use 'mfussenegger/nvim-dap'				-- nvim dap integration
 	use 'rcarriga/nvim-dap-ui'
+
+	-- jupyter ingegration
+	use {
+	  "ahmedkhalf/jupyter-nvim",
+	  run = ":UpdateRemotePlugins",
+	  config = function()
+	    require("jupyter-nvim").setup {
+	      -- your configuration comes here
+	      -- or leave it empty to use the default settings
+	      -- refer to the configuration section below
+	    }
+	  end
+	}
+	-- use 'hkupty/iron.nvim'
+
+	use 'dccsillag/magma-nvim'
 
 	if packer_bootstrap then
 	  packer.sync()

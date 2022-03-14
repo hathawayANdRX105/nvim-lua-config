@@ -42,6 +42,7 @@ local modules = {
 	'config.git.gitsigns',
 	'config.git.neogit',
 	'config.git.diffview',
+	-- 'config.iron',
 }
 
 
