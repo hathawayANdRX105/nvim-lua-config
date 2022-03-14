@@ -32,9 +32,9 @@ Comment.setup(
     ---@type table
     opleader = {
         ---Line-comment keymap
-        line = 'gc',
+        line = 'g;',
         ---Block-comment keymap
-        block = 'gb',
+        block = 'g/',
     },
 
     ---LHS of extra mappings

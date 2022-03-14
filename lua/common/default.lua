@@ -3,8 +3,6 @@ local default_config = {
 	termguicolors = true,
 }
 
-local global_config = {
-}
-
+-- vim.cmd[[au BufWritePost <buffer> lua require('lint').try_lint()]]
 -- load set-option config
 Load_set(default_config)

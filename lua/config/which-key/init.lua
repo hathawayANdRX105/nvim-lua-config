@@ -200,12 +200,14 @@ local g_mappings = {
 
 local g_vmode_mappings = {
 	name = "+goto",
-	[';'] = { [[<cmd>lua require("Comment.api").toggle_linewise_op(vim.fn.visualmode())<CR>]],
-		"comment-block"
-	},
-	['/'] = { [[<cmd>lua require("Comment.api").toggle_blockwise_op(vim.fn.visualmode())<CR>]],
-		"comment-line"
-	},
+	-- [';'] = { [[<cmd>lua require("Comment.api").locked.toggle_linewise_op(vim.fn.visualmode())<CR>]],
+	-- 	"comment-block"
+	-- },
+	-- ['/'] = { [[<cmd>lua require("Comment.api").locked.toggle_blockwise_op(vim.fn.visualmode())<CR>]],
+	-- 	"comment-line"
+	-- },
+	[';'] = { "comment-block" },
+	['/'] = { "comment-line" },
 }
 
 local left_bracket_mappings = {

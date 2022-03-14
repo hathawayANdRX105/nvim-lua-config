@@ -88,6 +88,7 @@ return require('packer').startup(function(use)
 	use 'williamboman/nvim-lsp-installer' 			-- lsp server installer
 	use "ray-x/lsp_signature.nvim" 				-- lsp signnature plugin
 	use "folke/trouble.nvim"				-- lsp quick-fix replace
+	use 'jose-elias-alvarez/null-ls.nvim'
 
 	-- completion
 	use 'hrsh7th/nvim-cmp'		-- Autocompletion plugin
@@ -126,24 +127,20 @@ return require('packer').startup(function(use)
 	use 'mfussenegger/nvim-dap'				-- nvim dap integration
 	use 'rcarriga/nvim-dap-ui'
 
+
 	-- jupyter ingegration
-	use {
-	  "ahmedkhalf/jupyter-nvim",
-	  run = ":UpdateRemotePlugins",
-	  config = function()
-	    require("jupyter-nvim").setup {
+	-- use {
+	  -- "ahmedkhalf/jupyter-nvim",
+	  -- run = ":UpdateRemotePlugins",
+	  -- config = function()
+	    -- require("jupyter-nvim").setup {
 	      -- your configuration comes here
 	      -- or leave it empty to use the default settings
 	      -- refer to the configuration section below
-	    }
-	  end
-	}
+	    -- }
+	  -- end
+	-- }
 	-- use 'hkupty/iron.nvim'
 
-	use 'dccsillag/magma-nvim'
-
-	if packer_bootstrap then
-	  packer.sync()
-	end
 end)
 
