@@ -12,6 +12,9 @@ local ui_global_config = {
 	nightflyTransparent = 1,
 	nightflyUnderlineMatchParen = 1,
 	asyncrun_open = 10,
+
+	-- fix up for cursorhold
+	cursorhold_updatetime = 100, 
  }
 
 local ui_opt_config = {

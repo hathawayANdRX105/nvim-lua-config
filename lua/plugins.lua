@@ -126,6 +126,7 @@ return require('packer').startup(function(use)
 	-- debug
 	use 'mfussenegger/nvim-dap'				-- nvim dap integration
 	use 'rcarriga/nvim-dap-ui'
+	-- use 'leoluz/nvim-dap-go'
 
 
 	-- jupyter ingegration
@@ -142,5 +143,7 @@ return require('packer').startup(function(use)
 	-- }
 	-- use 'hkupty/iron.nvim'
 
+	-- fix
+	use 'antoinemadec/FixCursorHold.nvim'
 end)
 

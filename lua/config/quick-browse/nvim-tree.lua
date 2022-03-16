@@ -6,6 +6,19 @@ local tree_cb = nvim_tree_config.nvim_tree_callback
 
 vim.g.nvim_tree_indent_markers = 1
 
+vim.g.nvim_tree_icons = {
+       default=        "ﴔ",
+       symlink=        "",
+       git= icons.git,
+       folder= icons.folder,
+       lsp= {
+	      hint = icons.diagnostics.Hint,
+	      info = icons.diagnostics.Information,
+	      warning = icons.diagnostics.Warning,
+	      error = icons.diagnostics.Error,
+        }
+       }
+
 -- following options are the default
 -- each of these are documented in `:help nvim-tree.OPTION_NAME`
 
@@ -14,10 +27,10 @@ nvim_tree.setup {
   hijack_netrw         = true,
   open_on_setup        = false,
   ignore_buffer_on_setup = false,
-  ignore_ft_on_setup   = {},
+  ignore_ft_on_setup   = {"startify", "dashboard", "alpha"},
   auto_close           = true,
   auto_reload_on_write = true,
-  open_on_tab          = true,
+  open_on_tab          = false,
   hijack_cursor        = true,
   update_cwd           = true,
   hijack_unnamed_buffer_when_opening = false,
@@ -48,16 +61,17 @@ nvim_tree.setup {
     custom = {}
   },
   -- default git integration
-  -- git = {
-    -- enable = true,
-    -- ignore = true,
-    -- timeout = 400,
-  -- },
+  git = {
+    enable = true,
+    ignore = true,
+    timeout = 500,
+  },
   view = {
     width = 30,
     height = 30,
     hide_root_folder = false,
     side = 'left',
+    auto_resize = true,
     preserve_window_proportions = false,
     mappings = {
       custom_only = false,
@@ -81,6 +95,6 @@ nvim_tree.setup {
 		folders = 1,
 		files   = 1,
 		folder_arrows = 1,
-		tree_width    = 1,
+		tree_width    = 30,
 	},
 }

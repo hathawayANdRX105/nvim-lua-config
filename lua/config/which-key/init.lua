@@ -174,6 +174,11 @@ local localleader_mappings = {
 
 	s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
 	f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
+
+	d = {
+		name = "+Debug-trigger",
+		g = { "<cmd>lua require('dap-go').debug_test()<CR>", "debug-go-test" },
+	},
 }
 
 

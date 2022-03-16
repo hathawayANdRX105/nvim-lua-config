@@ -44,11 +44,18 @@ return {
 		OpenFolder = "ﱮ",
 	},
 	git = {
-		Add = "",
-		Mod = "",
-		Rename = "",
-		Diff = "繁",
-		Repo = "",
+		-- Add = "",
+		-- Mod = "",
+		-- Rename = "",
+		-- Diff = "繁",
+		-- Repo = "",
+
+		Unstaged=     "",
+		Staged=       "",
+		Unmerged=     "",
+		Renamed=      "ﱯ",
+		Untracked=    "",
+		Deleted=      "",
 	},
 	ui = {
 		Lock = "",
@@ -92,4 +99,15 @@ return {
 		Tag = "",
 		Watch = " 慠",
 	},
+
+       folder= {
+         arrow_open=   "",
+         arrow_closed= "",
+         default=      "",
+         open=         "",
+         empty=        "",
+         empty_open=   "",
+         symlink=      "",
+         symlink_open= "",
+        },
 }

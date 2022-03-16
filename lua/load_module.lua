@@ -28,7 +28,7 @@ local modules = {
 	'config.nvim-cmp',
 
 	'lsp',
-
+	'system-debug',
 	'system-build',
 
 	'config.enhance-vision.neoscroll',
@@ -43,6 +43,7 @@ local modules = {
 	'config.git.neogit',
 	'config.git.diffview',
 	-- 'config.iron',
+
 }
 
 
