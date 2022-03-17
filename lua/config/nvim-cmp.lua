@@ -10,7 +10,7 @@ end
 -- icons presets
 local icons = require "config.icons"
 local kind_icons = icons.kind
-local lspkind = require('lspkind')
+-- local lspkind = require('lspkind')
 
 
 -- setup tabnine
@@ -81,7 +81,7 @@ cmp.setup{
 		-- if entry.completion_item.data ~= nil and entry.completion_item.data.detail ~= nil then
 		-- menu = entry.completion_item.data.detail .. " " .. menu
 		-- end
-		vim_item.kind = icons.misc.Robot
+		vim_item.kind = icons.ui.Lightbulb
 		end
 		-- vim_item.kind = string.format('%s %s', kind_icons[vim_item.kind], vim_item.kind) -- This concatonates the iconss with the name of the item kind
 		-- NOTE: order matters

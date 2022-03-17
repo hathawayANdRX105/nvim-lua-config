@@ -4,7 +4,7 @@ local modules = {
 	'util',
 	'plugins',
 	'config.icons',
-	'common.ui',
+	'theme',
 	'common.default',
 	'common.keymappings',
 	'config.which-key',
@@ -17,7 +17,8 @@ local modules = {
 
 	'config.ui.alpha',
 	'config.ui.lualine',
-	'config.ui.bufferline',
+	'config.ui.barbar',
+--	'config.ui.bufferline',
 
 	'config.session',
 	'config.quick-browse.telescope',

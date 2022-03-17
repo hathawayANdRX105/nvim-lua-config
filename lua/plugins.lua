@@ -41,10 +41,9 @@ return require('packer').startup(function(use)
 	-- bufferline / nvim-tree / lualine need icon plugin
 	use 'kyazdani42/nvim-web-devicons'
 	use 'folke/which-key.nvim'			-- space which-key
-	use 'akinsho/bufferline.nvim'			-- buffer line
+	-- use 'akinsho/bufferline.nvim'			-- buffer line
 	use 'nvim-lualine/lualine.nvim'			-- status line
 	use 'goolord/alpha-nvim'			-- Startup screen
-	-- use 'glepnir/dashboard-nvim'				-- Startup screen
 
 	-- colorscheme
 	--use 'EdenEast/nightfox.nvim'
@@ -119,6 +118,7 @@ return require('packer').startup(function(use)
 	use "tversteeg/registers.nvim" 			-- pop show the context of register
 	use {'kevinhwang91/nvim-bqf', ft = 'qf'}	-- better quick-fix
 	use "beauwilliams/focus.nvim"			-- window focus
+	use 'romgrk/barbar.nvim'			-- buffer tab
 
 	-- git
 	use 'lewis6991/gitsigns.nvim'			-- git sign

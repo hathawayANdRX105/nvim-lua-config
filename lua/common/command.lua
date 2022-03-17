@@ -11,7 +11,5 @@ return {
 	"hi def NeogitHunkHeader guifg=#cccccc guibg=#404040",
 	"hi def NeogitHunkHeaderHighlight guifg=#cccccc guibg=#4d4d4d",
 
-	-- setup neovide full screen
-	"neovide_fullscreen=v:true",
-	"neovide_transparency=0.8",
+	"set mouse+=a"
 }

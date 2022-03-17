@@ -2,7 +2,7 @@ local which_key = Check_status("which-key")
 
 local leader_maps = {
 	['`'] = { "<cmd>SymbolsOutline<CR>", "symbols" },
-	["1"] = { "<cmd>NvimTreeToggle<CR>", "explorer" },
+	["1"] = { "<cmd>lua require'util.toggle'.TreeToggle()<CR>", "explorer" },
 	["2"] = { "<cmd>Telescope file_browser<CR>", "file-browser" },
 	["3"] = { "<cmd>ToggleTerm<CR>", "terminal" },
 	['4'] = { "<cmd>Telescop projects<CR>", "switch-projects" },
@@ -44,11 +44,17 @@ local leader_maps = {
 
 	b = {
 		name = "+Buffer",
-		k = { "<cmd>bwipeout<CR>", "kill" },
+		k = { "<cmd>BufferClose<CR>", "kill" },
 		d = { "<cmd>bdelete<CR>", "delete" },
 		n = { "<cmd>BufferLineCycleNext<CR>", "buf-next" },
 		p = { "<cmd>BufferLineCyclePrev<CR>", "buf-prev" },
 		b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
+		o = {
+			name = "+Buffer-Order",
+			n = { "<cmd>BufferOrderByBufferNumber<CR>",	'order-by-number'},
+			d = { "<cmd>BufferOrderByDirectory<CR>",	'order-by-directory'},
+			l = { "<cmd>BufferOrderByLanguage<CR>",		'order-by-language'},
+		}
 	},
 
 	f = {
@@ -193,8 +199,8 @@ local g_mappings = {
 	['/'] = { [[<cmd>lua require("Comment.api").toggle_current_blockwise()<CR>]],
 		"comment-block"
 	},
-	c = { name = "+line-comment" },
-	b = { name = "+block-comment" },
+	-- c = { name = "+line-comment" },
+	b = { "<cmd>:BufferPick<CR>",  "buffer-pick" },
 
 	i = {
 		name = "+iswap",
