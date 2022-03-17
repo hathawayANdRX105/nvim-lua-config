@@ -4,7 +4,7 @@ local modules = {
 	'util',
 	'plugins',
 	'config.icons',
-	'theme',
+	'common.ui',
 	'common.default',
 	'common.keymappings',
 	'config.which-key',

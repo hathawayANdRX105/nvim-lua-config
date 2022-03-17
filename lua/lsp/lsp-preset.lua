@@ -1,4 +1,4 @@
-require('theme.config')
+require('common.scheme_config')
 
 local preset = {}
 -- illuminate : this plug will automatically highlight those existed symbols or words under cursor

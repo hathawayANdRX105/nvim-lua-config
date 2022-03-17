@@ -11,5 +11,5 @@ return {
 	"hi def NeogitHunkHeader guifg=#cccccc guibg=#404040",
 	"hi def NeogitHunkHeaderHighlight guifg=#cccccc guibg=#4d4d4d",
 
-	"set mouse+=a"
+	"set mouse+=a",
 }

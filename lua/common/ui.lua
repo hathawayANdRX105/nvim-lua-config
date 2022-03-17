@@ -1,0 +1,72 @@
+local ui_global_config = {
+	asyncrun_open = 10,
+	-- fix up for cursorhold
+	cursorhold_updatetime = 100,
+	neovide_transparency = 0.8,
+ }
+
+local ui_opt_config = {
+	guifont = 'Lekton Nerd Font Mono:h20',
+	updatetime = 250,
+}
+
+
+
+local cmds = {
+	-- renamer
+	[[hi default link RenamerNormal Normal]],
+	[[hi default link RenamerBorder RenamerNormal]],
+	[[hi default link RenamerTitle Identifier]],
+	[[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]],
+
+
+	-- highlight quickfix list
+	[[syn match QuickFixWarn /warning/]],
+	[[syn match QuickFixWarn /warn/]],
+	[[syn match QuickFixErr /error/]],
+	[[syn match QuickFixNote /note/]],
+	[[hi def link     QuickFixErr         Function]],
+	[[hi def link     QuickFixWarn         Function]],
+	[[hi def link     QuickFixNote         Function]],
+	[[hi QuickFixErr guifg=red]],
+	[[hi QuickFixWarn guifg=yellow]],
+	[[hi QuickFixNote guifg=green]],
+
+	-- ui
+	[[set termguicolors]]
+}
+
+-- setup diagnostics symbol for lsp
+function Setup_diagnostics_symbol()
+	local icons = require("config.icons")
+	local signs = {
+	  { hl = "DiagnosticSignError", text = icons.diagnostics.Error },
+	  { hl = "DiagnosticSignWarn", text = icons.diagnostics.Warning },
+	  { hl = "DiagnosticSignHint", text = icons.diagnostics.Hint },
+	  { hl = "DiagnosticSignInfo", text = icons.diagnostics.Information },
+	}
+
+	for _, sign in pairs(signs) do
+	      vim.fn.sign_define(sign.hl, { texthl = sign.hl, text = sign.text, numhl = sign.hl })
+	end
+end
+
+-- backup scheme: kanagawa / tokyonight
+-- vim.cmd[[colorscheme nightfly]]
+
+function Setup_colorscheme(scheme_name)
+	local scheme_config = require'common.scheme_config'
+	local scheme_global_config = scheme_config[scheme_name].global_config
+	local scheme_setup = scheme_config[scheme_name].setup
+
+	Load_global_set(scheme_global_config)
+	scheme_setup()
+	vim.cmd("colorscheme "..scheme_name)
+end
+
+Load_global_set(ui_global_config)
+Load_set(ui_opt_config)
+Load_cmd(cmds)
+Setup_diagnostics_symbol()
+Setup_colorscheme('catppuccin')
+
