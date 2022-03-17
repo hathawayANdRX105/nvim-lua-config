@@ -98,6 +98,8 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-cmdline'
 	use 'hrsh7th/cmp-nvim-lua'
 	use 'saadparwaiz1/cmp_luasnip'
+	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
+	use 'onsails/lspkind-nvim'
 
 	-- terminal integration
 	use "akinsho/toggleterm.nvim"
@@ -126,7 +128,7 @@ return require('packer').startup(function(use)
 	-- debug
 	use 'mfussenegger/nvim-dap'				-- nvim dap integration
 	use 'rcarriga/nvim-dap-ui'
-	-- use 'leoluz/nvim-dap-go'
+	use 'leoluz/nvim-dap-go'
 
 
 	-- jupyter ingegration
