@@ -69,6 +69,8 @@ return require('packer').startup(function(use)
 	use 'numToStr/Comment.nvim'			-- comment
 	use 'mizlan/iswap.nvim'				-- swap
 	use 'abecodes/tabout.nvim'			-- tab out bracket
+	use 'booperlv/nvim-gomove' 	 	 	-- move line/block
+	use 'monaqa/dial.nvim' 	 	 	 	-- dial number/time/bool
 
 	-- project manage
 	use "ahmedkhalf/project.nvim"				-- project switch
@@ -103,6 +105,9 @@ return require('packer').startup(function(use)
 	-- snippets
 	use "L3MON4D3/luaSnip"		-- snippet engine
 	use "rafamadriz/friendly-snippets"	-- a bunch of snippet to use
+
+	-- format
+	use 'sbdchd/neoformat'
 
 	-- enhance visual experience
 	use 'karb94/neoscroll.nvim'

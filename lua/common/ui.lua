@@ -2,7 +2,7 @@ local ui_global_config = {
 	asyncrun_open = 10,
 	-- fix up for cursorhold
 	cursorhold_updatetime = 100,
-	neovide_transparency = 0.9,
+	neovide_transparency = 0.999,
 
 	registers_return_symbol = "↵",
  }
@@ -37,7 +37,8 @@ local cmds = {
 	[[hi QuickFixNote guifg=green]],
 
 	-- ui
-	[[set termguicolors]]
+	[[set termguicolors]],
+	[[set cursorline]],
 }
 
 -- setup diagnostics symbol for lsp

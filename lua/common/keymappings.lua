@@ -52,6 +52,12 @@ local keymap_list = {
 	{ mode='n', key = '<F2>', 	map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
 	{ mode='v', key = '<leader>lr', map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
 
+
+	-- dial 0
+	{ mode='n', key = "<A-a>", map = '<cmd>DialIncrement<CR>', opt=opt },
+	{ mode='n', key = "<A-d>", map = '<cmd>DialDecrement<CR>', opt=opt },
+	{ mode='v', key = "<A-a>", map = '<cmd>DialIncrement<CR>', opt=opt },
+	{ mode='v', key = "<A-d>", map = '<cmd>DialDecrement<CR>', opt=opt },
 }
 
 -- vim load keymap bindings

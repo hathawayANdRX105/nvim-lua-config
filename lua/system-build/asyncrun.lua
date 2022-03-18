@@ -9,11 +9,11 @@ vim.cmd[[autocmd User AsyncRunStop  :copen 12]]
 
 local build_opts = {
 	go = {
-		build_project 		= "go build <root>",
-		run_project		= "go run <root>/main.go",
-		test_project		= "go test <root>/test",
-		test_func		= "go test <root>/test -v -run <cword>",
-		run			= "go run <root>/main.go",
+		build_project 		= "go build .",
+		run_project		= "go run ./cmd/main.go",
+		test_project		= "go test ./test",
+		test_func		= "go test ./test -v -run <cword>",
+		run			= "go run ./cmd/main.go",
 	},
 
 	python = {

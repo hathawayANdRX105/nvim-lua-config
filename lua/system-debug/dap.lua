@@ -2,15 +2,15 @@ local dap = Check_status('dap')
 
 vim.fn.sign_define('DapBreakpoint', {text='', texthl='', linehl='', numhl=''})
 
--- local dap_configs = {
--- 	go = require('system-debug.config.go')
--- }
---
---
--- for dap_name, dap_config in pairs(dap_configs) do
--- 	dap.adapters[dap_name] = dap_config.adapters
--- 	dap.configurations[dap_name] = dap_config.configurations
--- end
+local dap_configs = {
+	go = require('system-debug.config.go')
+}
+
+
+for dap_name, dap_config in pairs(dap_configs) do
+	dap.adapters[dap_name] = dap_config.adapters
+	dap.configurations[dap_name] = dap_config.configurations
+end
 
 
 --
