@@ -9,16 +9,12 @@ local modules = {
 	'common.keymappings',
 	'config.which-key',
 
-	'config.edit-operation.hop',
-	'config.edit-operation.surround',
-	'config.edit-operation.iswap',
-	'config.edit-operation.comment',
-	'config.edit-operation.auto-pairs',
+	'config.edit-operation',
 
 	'config.ui.alpha',
 	'config.ui.lualine',
 	'config.ui.barbar',
---	'config.ui.bufferline',
+	-- 'config.ui.bufferline',
 
 	'config.session',
 	'config.quick-browse.telescope',

@@ -45,9 +45,9 @@ local leader_maps = {
 	b = {
 		name = "+Buffer",
 		k = { "<cmd>BufferClose<CR>", "kill" },
-		d = { "<cmd>bdelete<CR>", "delete" },
-		n = { "<cmd>BufferLineCycleNext<CR>", "buf-next" },
-		p = { "<cmd>BufferLineCyclePrev<CR>", "buf-prev" },
+		d = { "<cmd>BufferDelete<CR>", "delete" },
+		n = { "<cmd>BufferNext<CR>", "buf-next" },
+		p = { "<cmd>BufferPrevious<CR>", "buf-prev" },
 		b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
 		o = {
 			name = "+Buffer-Order",

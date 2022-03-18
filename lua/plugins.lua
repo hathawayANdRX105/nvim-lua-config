@@ -68,6 +68,7 @@ return require('packer').startup(function(use)
 	use 'windwp/nvim-autopairs'			-- autopairs
 	use 'numToStr/Comment.nvim'			-- comment
 	use 'mizlan/iswap.nvim'				-- swap
+	use 'abecodes/tabout.nvim'			-- tab out bracket
 
 	-- project manage
 	use "ahmedkhalf/project.nvim"				-- project switch
@@ -85,7 +86,7 @@ return require('packer').startup(function(use)
 	use 'jose-elias-alvarez/null-ls.nvim'
 
 	-- completion
-	use 'hrsh7th/nvim-cmp'		-- Autocompletion plugin
+	use { 'hrsh7th/nvim-cmp', before= 'tabout'	 }-- Autocompletion plugin
 	use 'hrsh7th/cmp-nvim-lsp'		-- LSP source for nvim-cmp
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -106,6 +107,7 @@ return require('packer').startup(function(use)
 	-- enhance visual experience
 	use 'karb94/neoscroll.nvim'
 	use {  'nvim-treesitter/nvim-treesitter', before='neorg', run = ':TSUpdate' }
+	use 'p00f/nvim-ts-rainbow'			-- rainbow brackets
 	use 'RRethy/vim-illuminate'			-- lsp symbol highlight
 	use 'lukas-reineke/indent-blankline.nvim'	-- indent
 	use 'xiyaowong/nvim-transparent'		-- transparent background
@@ -147,5 +149,6 @@ return require('packer').startup(function(use)
 
 	-- fix
 	use 'antoinemadec/FixCursorHold.nvim'
+	use{  'max397574/better-escape.nvim', config = function() require("better_escape").setup() end }
 end)
 
