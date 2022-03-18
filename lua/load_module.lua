@@ -45,8 +45,14 @@ local modules = {
 	'config.git.diffview',
 	-- 'config.iron',
 
+	'config.neorg',
+
 }
 
 
 Load_module(modules)
 
+-- function NeorgLazyLoad()
+-- 	vim.cmd[[:PackerLoad neorg]]
+-- end
+-- vim.cmd[[au filetype ]]

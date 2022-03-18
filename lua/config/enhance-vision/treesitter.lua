@@ -1,7 +1,7 @@
 local treesitter = Check_status('nvim-treesitter.configs')
 
 treesitter.setup {
-	 ensure_installed = { "go", "python", "lua", "vim", "markdown", "c", "cpp", },
+	 ensure_installed = { "go", "python", "lua", "norg", "vim", "markdown", "c", "cpp", },
 	 sync_install = false,
 	 ignore_install = { "javascript" },
 	 highlight = {

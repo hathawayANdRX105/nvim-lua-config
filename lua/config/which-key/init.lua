@@ -207,6 +207,17 @@ local g_mappings = {
 		i = { "<cmd>ISwapWith<CR>",	"swap-with-current" },
 		s = { "<cmd>ISwap<CR>",		"swap-select" },
 	},
+
+	t = {
+		name = "+Todo-item",
+		u = "task-undo",
+		p = "pending",
+		d = "done",
+		h = "on-hold",
+		c = "cancel",
+		r = "recurring",
+		i = "important",
+	}
 }
 
 local g_vmode_mappings = {

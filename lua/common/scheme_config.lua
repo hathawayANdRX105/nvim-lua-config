@@ -1,11 +1,11 @@
 return {
 	tokyonight = {
 		global_config = {
+			tokyonight_style = "night",
 			lightline = { colorscheme ='tokyonight'},
 			tokyonight_italic_functions = true,
 			tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" },
 			tokyonight_colors = { hint = "orange", error = "#ff0000" },
-			registers_return_symbol = "↵",
 		},
 		setup = function() end
 
@@ -32,6 +32,16 @@ return {
 			catppuccin.setup()
 
 			require('lualine').setup { options = { theme = "catppuccin" }}
+		end
+
+	},
+
+	kanagawa = {
+		global_config = {
+			lightline = { colorscheme= 'kanagawa'},
+		},
+		setup = function()
+			require('lualine').setup { options = { theme = "kanagawa" }}
 		end
 
 	}

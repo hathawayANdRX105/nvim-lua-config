@@ -2,11 +2,15 @@ local ui_global_config = {
 	asyncrun_open = 10,
 	-- fix up for cursorhold
 	cursorhold_updatetime = 100,
-	neovide_transparency = 0.8,
+	neovide_transparency = 0.9,
+
+	registers_return_symbol = "↵",
  }
 
 local ui_opt_config = {
-	guifont = 'Lekton Nerd Font Mono:h20',
+	-- guifont = 'Lekton Nerd Font Mono:h20',
+	-- guifont = 'mononoki Nerd Font Mono:h18',
+	guifont = 'JetBrainsMono Nerd Font Mono:h18',
 	updatetime = 250,
 }
 
@@ -14,10 +18,10 @@ local ui_opt_config = {
 
 local cmds = {
 	-- renamer
-	[[hi default link RenamerNormal Normal]],
-	[[hi default link RenamerBorder RenamerNormal]],
-	[[hi default link RenamerTitle Identifier]],
-	[[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]],
+	-- [[hi default link RenamerNormal Normal]],
+	-- [[hi default link RenamerBorder RenamerNormal]],
+	-- [[hi default link RenamerTitle Identifier]],
+	-- [[autocmd! CursorHold,CursorHoldI * lua vim.diagnostic.open_float(nil, {focus=false})]],
 
 
 	-- highlight quickfix list
@@ -51,7 +55,7 @@ function Setup_diagnostics_symbol()
 	end
 end
 
--- backup scheme: kanagawa / tokyonight
+-- backup scheme: kanagawa / tokyonight / catppuccin
 -- vim.cmd[[colorscheme nightfly]]
 
 function Setup_colorscheme(scheme_name)
@@ -68,5 +72,5 @@ Load_global_set(ui_global_config)
 Load_set(ui_opt_config)
 Load_cmd(cmds)
 Setup_diagnostics_symbol()
-Setup_colorscheme('catppuccin')
+Setup_colorscheme('tokyonight')
 

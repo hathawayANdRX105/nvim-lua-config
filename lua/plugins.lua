@@ -105,7 +105,7 @@ return require('packer').startup(function(use)
 
 	-- enhance visual experience
 	use 'karb94/neoscroll.nvim'
-	use {  'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
+	use {  'nvim-treesitter/nvim-treesitter', before='neorg', run = ':TSUpdate' }
 	use 'RRethy/vim-illuminate'			-- lsp symbol highlight
 	use 'lukas-reineke/indent-blankline.nvim'	-- indent
 	use 'xiyaowong/nvim-transparent'		-- transparent background
@@ -125,6 +125,11 @@ return require('packer').startup(function(use)
 	use 'rcarriga/nvim-dap-ui'
 	use 'leoluz/nvim-dap-go'
 
+	-- note org
+	use {
+	    "nvim-neorg/neorg",
+	    after = "nvim-treesitter",
+	}
 
 	-- jupyter ingegration
 	-- use {
