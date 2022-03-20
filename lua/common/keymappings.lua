@@ -47,10 +47,6 @@ local keymap_list = {
 
 	{ mode='i', key = '<C-CR>', map = '<Esc>$a<CR>', opt=opt },
 
-	-- renamer
-	{ mode='i', key = '<F2>', 	map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
-	{ mode='n', key = '<F2>', 	map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
-	{ mode='v', key = '<leader>lr', map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
 
 
 	-- dial 0

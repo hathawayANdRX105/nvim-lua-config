@@ -55,11 +55,11 @@ return require('packer').startup(function(use)
 
 
 	-- quick brwose
-	use 'nvim-lua/plenary.nvim'			-- need
-	use 'nvim-telescope/telescope.nvim'		-- telescope switch
-	use {'nvim-telescope/telescope-ui-select.nvim' }-- telescope ui
-	use 'kyazdani42/nvim-tree.lua'			-- Explorer
-	use 'simrat39/symbols-outline.nvim'		-- symbols outline
+	use 'nvim-lua/plenary.nvim'			                -- need
+	use 'nvim-telescope/telescope.nvim'		          -- telescope switch
+	use 'nvim-telescope/telescope-ui-select.nvim'   -- telescope ui
+	use 'kyazdani42/nvim-tree.lua'                  -- Explorer
+	use 'simrat39/symbols-outline.nvim'		          -- symbols outline
 	use "nvim-telescope/telescope-file-browser.nvim"-- telescope browser
 
 	-- text opertion
@@ -74,7 +74,7 @@ return require('packer').startup(function(use)
 
 	-- project manage
 	use "ahmedkhalf/project.nvim"				-- project switch
-	use { 'michaelb/sniprun', run = 'bash ./install.sh'}	-- snip run for py
+	-- use { 'michaelb/sniprun', run = 'bash ./install.sh'}	-- snip run for py
 	use 'skywind3000/asyncrun.vim'				-- code run
 	use 'Shatur/neovim-session-manager'			-- session
 
@@ -85,10 +85,10 @@ return require('packer').startup(function(use)
 	use 'williamboman/nvim-lsp-installer' 			-- lsp server installer
 	use "ray-x/lsp_signature.nvim" 				-- lsp signnature plugin
 	use "folke/trouble.nvim"				-- lsp quick-fix replace
-	use 'jose-elias-alvarez/null-ls.nvim'
+	-- use 'jose-elias-alvarez/null-ls.nvim'
 
 	-- completion
-	use { 'hrsh7th/nvim-cmp', before= 'tabout'	 }-- Autocompletion plugin
+	use 'hrsh7th/nvim-cmp'	      -- Autocompletion plugin
 	use 'hrsh7th/cmp-nvim-lsp'		-- LSP source for nvim-cmp
 	use 'hrsh7th/cmp-buffer'
 	use 'hrsh7th/cmp-path'
@@ -96,7 +96,7 @@ return require('packer').startup(function(use)
 	use 'hrsh7th/cmp-nvim-lua'
 	use 'saadparwaiz1/cmp_luasnip'
 	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
-	use 'onsails/lspkind-nvim'
+	-- use 'onsails/lspkind-nvim'
 
 	-- terminal integration
 	use "akinsho/toggleterm.nvim"
@@ -111,7 +111,7 @@ return require('packer').startup(function(use)
 
 	-- enhance visual experience
 	use 'karb94/neoscroll.nvim'
-	use {  'nvim-treesitter/nvim-treesitter', before='neorg', run = ':TSUpdate' }
+	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	use 'p00f/nvim-ts-rainbow'			-- rainbow brackets
 	use 'RRethy/vim-illuminate'			-- lsp symbol highlight
 	use 'lukas-reineke/indent-blankline.nvim'	-- indent
@@ -130,13 +130,8 @@ return require('packer').startup(function(use)
 	-- debug
 	use 'mfussenegger/nvim-dap'				-- nvim dap integration
 	use 'rcarriga/nvim-dap-ui'
-	use 'leoluz/nvim-dap-go'
+	-- use{ 'leoluz/nvim-dap-go', ft='go'}
 
-	-- note org
-	use {
-	    "nvim-neorg/neorg",
-	    after = "nvim-treesitter",
-	}
 
 	-- jupyter ingegration
 	-- use {
@@ -152,8 +147,19 @@ return require('packer').startup(function(use)
 	-- }
 	-- use 'hkupty/iron.nvim'
 
+	-- note org
+	use { "nvim-neorg/neorg", after='nvim-treesitter'}
+
+  -- language envirment
+  use { 'ray-x/go.nvim',
+        ft='go' ,
+        config = function()
+          require'config.go_env'.setup()
+        end }
+
 	-- fix
 	use 'antoinemadec/FixCursorHold.nvim'
 	use{  'max397574/better-escape.nvim', config = function() require("better_escape").setup() end }
+
 end)
 

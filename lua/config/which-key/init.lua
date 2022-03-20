@@ -91,6 +91,11 @@ local leader_maps = {
 	q = {
 		name = "+Session",
 		q = { "<cmd>qa!<CR>", "quit-nvim" },
+    l = { "<cmd>SessionManager load_session<CR>", "load-session" },
+    d = { "<cmd>SessionManager delete_session<CR>", "delete-session" },
+    s = { "<cmd>SessionManager save_session<CR>", "save-session" },
+    c = { "<cmd>SessionManager load_current_session<CR>", "load-current-session" },
+    ['<tab>'] = { "<cmd>SessionManager load_last_session<CR>", "load-last-session" },
 	},
 
 	l = {
@@ -181,10 +186,6 @@ local localleader_mappings = {
 	s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
 	f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
 
-	d = {
-		name = "+Debug-trigger",
-		g = { "<cmd>lua require('dap-go').debug_test()<CR>", "debug-go-test" },
-	},
 }
 
 
@@ -332,6 +333,8 @@ local setup_opts = function (mode, prefix, buffer, isSilent, isNoremap, isNowait
 	}
 end
 
+local ft_mappings = require'system-build.mode-action'.mappings
+
 local leader_opts = setup_opts("n", "<leader>", nil, true, true, true)
 local g_opts = setup_opts("n", "g", nil, true, true, true)
 local g_vmode_opts = setup_opts("v", "g", nil, true, true, true)
@@ -339,10 +342,12 @@ local left_bracket_opts = setup_opts("n", "[", nil, true, true, true)
 local right_bracket_opts = setup_opts("n", "]", nil, true, true, true)
 
 local localleader_opts = setup_opts("n", "<localleader>", nil, true, true, true)
+local ft_opts = setup_opts("n", ";", nil, true, true, true)
 
 which_key.setup(setup)
 which_key.register(leader_maps, leader_opts)
 which_key.register(localleader_mappings, localleader_opts)
+which_key.register(ft_mappings, ft_opts)
 which_key.register(g_mappings, g_opts)
 which_key.register(g_vmode_mappings, g_vmode_opts)
 which_key.register(left_bracket_mappings, left_bracket_opts)

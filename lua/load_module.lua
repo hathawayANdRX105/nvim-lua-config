@@ -25,7 +25,7 @@ local modules = {
 	'config.nvim-cmp',
 
 	'lsp',
-	-- 'system-debug',
+	'system-debug',
 	'system-build',
 
 	'config.enhance-vision.neoscroll',

@@ -2,15 +2,31 @@ local dap = Check_status('dap')
 
 vim.fn.sign_define('DapBreakpoint', {text='', texthl='', linehl='', numhl=''})
 
-local dap_configs = {
-	go = require('system-debug.config.go')
+-- local dap_configs = {
+-- 	go = require('system-debug.config.go')
+-- }
+--
+--
+-- for dap_name, dap_config in pairs(dap_configs) do
+-- 	dap.adapters[dap_name] = dap_config.adapters
+-- 	dap.configurations[dap_name] = dap_config.configurations
+-- end
+
+dap.adapters.go = {
+  type = 'executable';
+  command = 'node';
+  args = {os.getenv('HOME') .. '/.code/vscode-go/dist/debugAdapter.js'};
 }
-
-
-for dap_name, dap_config in pairs(dap_configs) do
-	dap.adapters[dap_name] = dap_config.adapters
-	dap.configurations[dap_name] = dap_config.configurations
-end
+dap.configurations.go = {
+  {
+    type = 'go';
+    name = 'Debug';
+    request = 'launch';
+    showLog = false;
+    program = "${file}";
+    dlvToolPath = vim.fn.exepath('dlv')  -- Adjust to where delve is installed
+  },
+}
 
 
 --

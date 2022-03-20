@@ -100,14 +100,16 @@ return {
 		Watch = " 慠",
 	},
 
-       folder= {
-         arrow_open=   "",
-         arrow_closed= "",
-         default=      "",
-         open=         "",
-         empty=        "",
-         empty_open=   "",
-         symlink=      "",
-         symlink_open= "",
-        },
+   folder= {
+     -- arrow_open=   "",
+     -- arrow_closed= "",
+     arrow_open=   "",
+     arrow_closed= "",
+     default=      "",
+     open=         "",
+     empty=        "",
+     empty_open=   "",
+     symlink=      "",
+     symlink_open= "",
+    },
 }
