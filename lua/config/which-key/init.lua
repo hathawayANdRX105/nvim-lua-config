@@ -93,7 +93,7 @@ local leader_maps = {
 		q = { "<cmd>qa!<CR>", "quit-nvim" },
     l = { "<cmd>SessionManager load_session<CR>", "load-session" },
     d = { "<cmd>SessionManager delete_session<CR>", "delete-session" },
-    s = { "<cmd>SessionManager save_session<CR>", "save-session" },
+    s = { "<cmd>SessionManager save_current_session<CR>", "save-session" },
     c = { "<cmd>SessionManager load_current_session<CR>", "load-current-session" },
     ['<tab>'] = { "<cmd>SessionManager load_last_session<CR>", "load-last-session" },
 	},

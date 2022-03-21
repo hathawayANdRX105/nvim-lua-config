@@ -2,7 +2,7 @@ return {
 	kind = {
 		Text = "",
 		Method = "",
-		Function = "ƒ",
+		Function = "",
 		Constructor = "#",
 		Field = "",
 		Variable = "",
@@ -28,6 +28,7 @@ return {
 		Misc = "",
 		Namespace = "",
 		Null = "Null",
+		Container = '⛶',
 	},
 	type = {
 		Array = "",
@@ -96,7 +97,8 @@ return {
 	misc = {
 		Robot = "ﮧ",
 		Squirrel = "",
-		Tag = "",
+		-- Tag = "",
+		Tag = "炙",
 		Watch = " 慠",
 	},
 
@@ -112,4 +114,7 @@ return {
      symlink=      "",
      symlink_open= "",
     },
+    arrows = {
+      left = '',
+    }
 }

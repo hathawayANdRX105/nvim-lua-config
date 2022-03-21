@@ -110,15 +110,17 @@ return require('packer').startup(function(use)
 	use 'sbdchd/neoformat'
 
 	-- enhance visual experience
-	use 'karb94/neoscroll.nvim'
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
 	use 'p00f/nvim-ts-rainbow'			-- rainbow brackets
+  use "SmiteshP/nvim-gps"         -- get location of cursor
+
 	use 'RRethy/vim-illuminate'			-- lsp symbol highlight
+  use 'xiyaowong/nvim-transparent'		-- transparent background
 	use 'lukas-reineke/indent-blankline.nvim'	-- indent
-	use 'xiyaowong/nvim-transparent'		-- transparent background
 	use 'filipdutescu/renamer.nvim'			-- lsp rename with popmenu
 	use "tversteeg/registers.nvim" 			-- pop show the context of register
 	use {'kevinhwang91/nvim-bqf', ft = 'qf'}	-- better quick-fix
+  use 'karb94/neoscroll.nvim'
 	use "beauwilliams/focus.nvim"			-- window focus
 	use 'romgrk/barbar.nvim'			-- buffer tab
 
@@ -159,7 +161,13 @@ return require('packer').startup(function(use)
 
 	-- fix
 	use 'antoinemadec/FixCursorHold.nvim'
-	use{  'max397574/better-escape.nvim', config = function() require("better_escape").setup() end }
+
+  -- enhance-ide
+  use{  'max397574/better-escape.nvim', config = function() require("better_escape").setup() end }
+  use {
+    'lewis6991/spellsitter.nvim',
+    config = function() require('spellsitter').setup({enable = true}) end
+  }
 
 end)
 

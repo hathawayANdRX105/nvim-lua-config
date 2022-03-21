@@ -33,6 +33,7 @@ local modules = {
 	'config.enhance-vision.treesitter',
 	'config.enhance-vision.renamer',
 	'config.enhance-vision.bqf',
+	'config.enhance-vision.gps',
 
 	'config.toggleterm',
 
