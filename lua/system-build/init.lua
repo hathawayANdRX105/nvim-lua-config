@@ -1,1 +1,5 @@
-local asyncrun = Check_status('system-build.asyncrun')
+return {
+  setup = function ()
+    require'system-build.mode-action'.setup()
+  end
+}

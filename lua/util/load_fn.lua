@@ -24,12 +24,6 @@ function Load_keymap(keymap_list)
 end
 
 
--- load require module files
-function Load_module(modules)
-	for i = 1, #modules do
-		require(modules[i])
-	end
-end
 
 -- load cmd
 function Load_cmd(cmds)

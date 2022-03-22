@@ -49,11 +49,11 @@ local cfg = {
   toggle_key = nil -- toggle signature on and off in insert mode,  e.g. toggle_key = '<M-x>'
 }
 
-os.date("%H-%M", os.time())
+-- os.date("%H-%M", os.time())
 -- recommended:
 local signature = Check_status('lsp_signature')
 signature.setup(cfg) -- no need to specify bufnr if you don't use toggle_key
 
 -- You can also do this inside lsp on_attach
 -- note: on_attach deprecated
-signature.on_attach(cfg, bufnr) -- no need to specify bufnr if you don't use toggle_key
+signature.on_attach(cfg, nil) -- no need to specify bufnr if you don't use toggle_key

@@ -14,8 +14,8 @@ lsp_installer.settings({
 -- or if the server is already installed).
 lsp_installer.on_server_ready(function(server)
     local opts = {
-	on_attach = require('lsp.lsp-preset').on_attach,
-	capabilities = require('lsp.lsp-preset').capabilities,
+      on_attach = require('lsp.lsp-preset').on_attach,
+      capabilities = require('lsp.lsp-preset').capabilities,
     }
 
     -- (optional) Customize the options passed to the server

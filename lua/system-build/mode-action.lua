@@ -1,21 +1,7 @@
  local M = {}
 local cmd = vim.cmd
 
--- set up quickfix window with auto padding
-cmd[[let g:asyncrun_open = 9]]
-cmd[[let g:asyncrun_bell = 1]]
-cmd[[let g:asyncrun_rootmarks = ['.mark', '.svn', '.git', '.root', '_darcs', 'build.xml'] ]]
 
-cmd[[autocmd User AsyncRunPre let g:asyncrun_open=9]]
--- cmd[[autocmd User AsyncRunStart :copen 12]]
-cmd[[autocmd User AsyncRunStop  :copen 12]]
-
-	-- renamer
-	-- { mode='i', key = '<F2>', 	map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
-	-- { mode='n', key = '<F2>', 	map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
-	-- { mode='v', key = '<leader>lr', map = '<cmd>lua require("renamer").rename({empty=true})<cr>', opt=opt },
-
-cmd[[nnoremap <silent> <F2> :lua require("renamer").rename()<CR>]]
 M.mappings = {
   name = "+Lsp-Mode",
   r = { "<cmd>ModeAction run<CR>", "run" },
@@ -86,6 +72,19 @@ M.ModeAction = function(...)
   end
 end
 
-cmd[[command! -nargs=* ModeAction lua require'system-build.mode-action'.ModeAction(<f-args>)]]
+M.setup = function ()
+    cmd[[command! -nargs=* ModeAction lua require'system-build.mode-action'.ModeAction(<f-args>)]]
+    -- set up quickfix window with auto padding
+    cmd[[let g:asyncrun_open = 9]]
+    cmd[[let g:asyncrun_bell = 1]]
+    cmd[[let g:asyncrun_rootmarks = ['.mark', '.svn', '.git', '.root', '_darcs', 'build.xml'] ]]
+
+    cmd[[autocmd User AsyncRunPre let g:asyncrun_open=9]]
+    -- cmd[[autocmd User AsyncRunStart :copen 12]]
+    cmd[[autocmd User AsyncRunStop  :copen 12]]
+
+    -- rename
+    cmd[[nnoremap <silent> <F2> :lua require("renamer").rename()<CR>]]
+end
 
 return M

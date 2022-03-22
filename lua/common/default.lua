@@ -37,10 +37,10 @@ local default_settings = {
 
 	"set wrap",
   "set list",
-	-- "set listchars=trail:.", 
+	-- "set listchars=trail:.",
 
 	"set hlsearch",
-	"set ignorecase", -- 忽略大小写
+  "set ignorecase", -- 忽略大小写
 
 
 	"set nobackup",
@@ -51,6 +51,9 @@ local default_settings = {
 }
 -- vim.cmd[[au BufWritePost <buffer> lua require('lint').try_lint()]]
 -- load set-option config
-Load_set(default_config)
-
-Load_cmd(default_settings)
+return {
+  setup = function ()
+    Load_set(default_config)
+    Load_cmd(default_settings)
+  end
+}

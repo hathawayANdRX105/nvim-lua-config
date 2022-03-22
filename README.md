@@ -12,10 +12,19 @@ todo plugin integration
 - navigator.lua
 - cmp-spell
 - Goto Preview
-- spellsitter.nvim
-- shade.nvim
+- [√] spellsitter.nvim
+- [√] nvim.gps
+- [√] shade.nvim
+- [√] window-picker
+- [] vista.vim
+- [] filetype.nvim
+- [] tabular
 
 theme
 - blue-moon
+- gruvbox-baby [pretty telescope design]
+
+theme generator
+- themer.lua
 
 

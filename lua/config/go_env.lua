@@ -11,15 +11,15 @@ M.setup = function()
 
     gopls_cmd = 'gopls',
     lsp_gofumpt = true,
-    
   })
-  local exec = vim.api.nvim_exec
+
+  -- local exec = vim.api.nvim_exec
 
   -- exec([[autocmd BufWritePre *.go :silent! lua require('go.format').gofmt()]], false)
 
   -- lsp support
   -- exec[[autocmd BufWritePre (InsertLeave?) <buffer> lua vim.lsp.buf.formatting_sync(nil,500)]]
-  
+
   -- exec([[ autocmd BufWritePre *.go :silent! lua require('go.format').goimport() ]], false)
 end
 

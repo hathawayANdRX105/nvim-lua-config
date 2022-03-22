@@ -2,7 +2,8 @@ local which_key = Check_status("which-key")
 
 local leader_maps = {
 	['`'] = { "<cmd>SymbolsOutline<CR>", "symbols" },
-	["1"] = { "<cmd>lua require'util.toggle'.TreeToggle()<CR>", "explorer" },
+	-- ["1"] = { "<cmd>lua require'util.toggle'.TreeToggle()<CR>", "explorer" },
+	["1"] = { "<cmd>lua require'nvim-tree'.toggle()<CR>", "explorer" },
 	["2"] = { "<cmd>Telescope file_browser<CR>", "file-browser" },
 	["3"] = { "<cmd>ToggleTerm<CR>", "terminal" },
 	['4'] = { "<cmd>Telescop projects<CR>", "switch-projects" },
@@ -37,8 +38,10 @@ local leader_maps = {
 		s = { "<cmd>lua require'focus'.split_command('j')<CR>", "split"},
 		v = { "<cmd>lua require'focus'.split_command('l')<CR>", "vertical"},
 
-		n = { "<C-w>w", "win-next"},
-		p = { "<C-w>p", "win-prev"},
+		-- n = { "<C-w>w", "win-next"},
+		p = { "<cmd>WindowPick<CR>", "window-pick"},
+		z = { "<cmd>WindowZap<CR>", "window-zap"},
+		w = { "<cmd>WindowSwap<CR>", "window-swap"},
 		c = { "<C-w>c", "close"},
 	},
 
@@ -62,7 +65,7 @@ local leader_maps = {
 		f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
 		r = { "<cmd>Telescop oldfiles<CR>", "recent-file" },
 		g = { "<cmd>Telescop git_files<CR>", "git-file" },
-		s = { "<cmd>write<CR>", "save-file" },
+		s = { "<cmd>silent write<CR>", "save-file" },
 		b = { "<cmd>Telescope file_browser<CR>", "file-browser" },
 	},
 
@@ -181,7 +184,7 @@ local localleader_mappings = {
 	r = { "<cmd>lua Run()<CR>",	"task-run"},
 	t = { "<cmd>lua TestProject()<CR>",	"task-test"},
 	b = { "<cmd>lua AsyncRunByOpts('build')<CR>",	"task-build"},
-	q = { "<cmd>lua QfToggle()<CR>", "quickfix-list" },
+	q = { "<cmd>lua require'util.toggle'.QfToggle()<CR>", "quickfix-list" },
 
 	s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
 	f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
@@ -194,6 +197,8 @@ local g_mappings = {
 	w = { "<cmd>HopWord<CR>",	"hop-word" },
 	l = { "<cmd>HopLine<CR>",	"hop-line" },
 	j = { "<cmd>HopChar1<CR>",	"hop-char1" },
+  -- window swap / window zap
+	p = { "<cmd>WindowPick<CR>",	"window-pick" },
 	[';'] = { [[<cmd>lua require("Comment.api").toggle_current_linewise()<CR>]],
 		"comment-line"
 	},
@@ -344,11 +349,11 @@ local right_bracket_opts = setup_opts("n", "]", nil, true, true, true)
 local localleader_opts = setup_opts("n", "<localleader>", nil, true, true, true)
 local ft_opts = setup_opts("n", ";", nil, true, true, true)
 
-which_key.setup(setup)
-which_key.register(leader_maps, leader_opts)
-which_key.register(localleader_mappings, localleader_opts)
-which_key.register(ft_mappings, ft_opts)
-which_key.register(g_mappings, g_opts)
-which_key.register(g_vmode_mappings, g_vmode_opts)
-which_key.register(left_bracket_mappings, left_bracket_opts)
-which_key.register(right_bracket_mappings, right_bracket_opts)
+    which_key.setup(setup)
+    which_key.register(leader_maps, leader_opts)
+    which_key.register(localleader_mappings, localleader_opts)
+    which_key.register(ft_mappings, ft_opts)
+    which_key.register(g_mappings, g_opts)
+    which_key.register(g_vmode_mappings, g_vmode_opts)
+    which_key.register(left_bracket_mappings, left_bracket_opts)
+    which_key.register(right_bracket_mappings, right_bracket_opts)

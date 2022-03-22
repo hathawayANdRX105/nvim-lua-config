@@ -1,5 +1,3 @@
-vim.g.mapleader = ' '
-vim.g.maplocalleader = ','
 
 local opt = { noremap=true, silent=true }
 
@@ -56,5 +54,11 @@ local keymap_list = {
 	{ mode='v', key = "<A-d>", map = '<cmd>DialDecrement<CR>', opt=opt },
 }
 
--- vim load keymap bindings
-Load_keymap(keymap_list)
+return {
+  setup = function ()
+    vim.g.mapleader = ' '
+    vim.g.maplocalleader = ','
+    -- vim load keymap bindings
+    Load_keymap(keymap_list)
+  end
+}

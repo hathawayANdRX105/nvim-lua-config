@@ -1,3 +1,7 @@
-require('util.load_fn')
-require('util.basic_fn')
--- require('util.ts') not need
+return {
+  setup = function ()
+    require('util.load_fn')
+    require('util.basic_fn')
+    -- require('util.ts') not need
+  end
+}

@@ -59,7 +59,7 @@ end
 -- backup scheme: kanagawa / tokyonight / catppuccin
 -- vim.cmd[[colorscheme nightfly]]
 
-function Setup_colorscheme(scheme_name)
+local function Setup_colorscheme(scheme_name)
 	local scheme_config = require'common.scheme_config'
 	local scheme_global_config = scheme_config[scheme_name].global_config
 	local scheme_setup = scheme_config[scheme_name].setup
@@ -69,9 +69,14 @@ function Setup_colorscheme(scheme_name)
 	vim.cmd("colorscheme "..scheme_name)
 end
 
-Load_global_set(ui_global_config)
-Load_set(ui_opt_config)
-Load_cmd(cmds)
-Setup_diagnostics_symbol()
-Setup_colorscheme('tokyonight')
+return {
+  setup = function()
+    local theme = 'catppuccin'
 
+    Load_global_set(ui_global_config)
+    Load_set(ui_opt_config)
+    Load_cmd(cmds)
+    Setup_diagnostics_symbol()
+    Setup_colorscheme(theme)
+  end,
+}

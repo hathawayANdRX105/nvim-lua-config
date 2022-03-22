@@ -34,11 +34,11 @@ dap.configurations.go = {
 vim.cmd[[nmap <silent> <localleader>dd :lua require('dap-go').debug_test()<CR>]]
 local opt = { noremap=true, silent=true }
 local keymap_list = {
-	{ mode='n', key = '<F8>' , map= "<cmd>lua require'dap'.step_over()<CR>"    , opt=opt },
-	{ mode='n', key = '<F7>' , map= "<cmd>lua require'dap'.step_into()<CR>"    , opt=opt },
-	{ mode='n', key = '<S-F8>' , map= "<cmd>lua require'dap'.step_out()<CR>"   , opt=opt },
-	{ mode='n', key = '<C-F8>' , map= "<cmd>lua require'dap'.toggle_breakpoint()<CR>"   , opt=opt },
-	{ mode='n', key = '<F9>' , map= "<cmd>lua require'dap'.continue()<CR>"   , opt=opt },
+  { mode='n', key = '<F8>' , map= "<cmd>lua require'dap'.step_over()<CR>"    , opt=opt },
+  { mode='n', key = '<F7>' , map= "<cmd>lua require'dap'.step_into()<CR>"    , opt=opt },
+  { mode='n', key = '<S-F8>' , map= "<cmd>lua require'dap'.step_out()<CR>"   , opt=opt },
+  { mode='n', key = '<C-F8>' , map= "<cmd>lua require'dap'.toggle_breakpoint()<CR>"   , opt=opt },
+  { mode='n', key = '<F9>' , map= "<cmd>lua require'dap'.continue()<CR>"   , opt=opt },
 }
 
 Load_keymap(keymap_list)

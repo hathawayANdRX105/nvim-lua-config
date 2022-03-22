@@ -1,17 +1,5 @@
-local fn = vim.fn
-local install_path = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-if fn.empty(fn.glob(install_path)) > 0 then
-	_ = fn.system({
-		'git',
-		'clone',
-		'--depth',
-		'1',
-		'https://github.com/wbthomason/packer.nvim',
-		install_path,
-	})
-	vim.cmd [[packadd packer.nvim]]
-end
-
+-- import Method:Check_status
+require("util.load_fn")
 -- Have packer use a popup window
 local packer = Check_status("packer")
 packer.init {
@@ -47,11 +35,13 @@ return require('packer').startup(function(use)
 
 	-- colorscheme
 	--use 'EdenEast/nightfox.nvim'
-	use 'bluz71/vim-nightfly-guicolors'
+	-- use 'bluz71/vim-nightfly-guicolors'
 	use 'folke/tokyonight.nvim'
 	-- use({ 'rose-pine/neovim', as = 'rose-pine', tag = 'v1.*', })
-	use "rebelot/kanagawa.nvim"
-	use({ "catppuccin/nvim", as = "catppuccin" })
+	-- use "rebelot/kanagawa.nvim"
+	 use({ "catppuccin/nvim", as = "catppuccin" })
+  -- use 'shaunsingh/moonlight.nvim'
+  --use 'yashguptaz/calvera-dark.nvim'
 
 
 	-- quick brwose
@@ -61,6 +51,8 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-tree.lua'                  -- Explorer
 	use 'simrat39/symbols-outline.nvim'		          -- symbols outline
 	use "nvim-telescope/telescope-file-browser.nvim"-- telescope browser
+  -- use 'yorickpeterse/nvim-window'
+  use 'ten3roberts/window-picker.nvim'
 
 	-- text opertion
 	use { 'phaazon/hop.nvim', branch = 'v1'}	-- motion
@@ -107,7 +99,7 @@ return require('packer').startup(function(use)
 	use "rafamadriz/friendly-snippets"	-- a bunch of snippet to use
 
 	-- format
-	use 'sbdchd/neoformat'
+	--use 'sbdchd/neoformat'
 
 	-- enhance visual experience
 	use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
@@ -119,10 +111,15 @@ return require('packer').startup(function(use)
 	use 'lukas-reineke/indent-blankline.nvim'	-- indent
 	use 'filipdutescu/renamer.nvim'			-- lsp rename with popmenu
 	use "tversteeg/registers.nvim" 			-- pop show the context of register
-	use {'kevinhwang91/nvim-bqf', ft = 'qf'}	-- better quick-fix
+	use 'kevinhwang91/nvim-bqf'					-- better quick-fix
   use 'karb94/neoscroll.nvim'
+  use 'romgrk/barbar.nvim'			-- buffer tab
 	use "beauwilliams/focus.nvim"			-- window focus
-	use 'romgrk/barbar.nvim'			-- buffer tab
+  use { 'sunjon/shade.nvim',
+    config = function ()
+      require'shade'.setup({ overlay_opacity = 50, opacity_step = 1, })
+    end
+  }                              -- window shade
 
 	-- git
 	use 'lewis6991/gitsigns.nvim'			-- git sign
@@ -130,8 +127,8 @@ return require('packer').startup(function(use)
 	use 'sindrets/diffview.nvim'			-- diffview
 
 	-- debug
-	use 'mfussenegger/nvim-dap'				-- nvim dap integration
-	use 'rcarriga/nvim-dap-ui'
+	--use 'mfussenegger/nvim-dap'				-- nvim dap integration
+	--use 'rcarriga/nvim-dap-ui'
 	-- use{ 'leoluz/nvim-dap-go', ft='go'}
 
 
@@ -150,7 +147,14 @@ return require('packer').startup(function(use)
 	-- use 'hkupty/iron.nvim'
 
 	-- note org
-	use { "nvim-neorg/neorg", after='nvim-treesitter'}
+	use {
+    "nvim-neorg/neorg",
+    ft='norg',
+    after='nvim-treesitter' ,
+    config = function()
+      require'config.neorg'
+    end
+  }
 
   -- language envirment
   use { 'ray-x/go.nvim',
@@ -166,7 +170,7 @@ return require('packer').startup(function(use)
   use{  'max397574/better-escape.nvim', config = function() require("better_escape").setup() end }
   use {
     'lewis6991/spellsitter.nvim',
-    config = function() require('spellsitter').setup({enable = true}) end
+    config = function() require('spellsitter').setup{enable = true} end
   }
 
 end)
