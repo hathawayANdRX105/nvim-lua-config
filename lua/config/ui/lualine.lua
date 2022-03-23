@@ -127,19 +127,25 @@ ins_left {
   --cond = conditions.buffer_not_empty,
 --}
 
---[[ ins_left {
-  'filetype',
-  cond = conditions.buffer_not_empty,
-  color = { fg = colors.magenta, gui = 'bold'},
-  colored = true,
-  icon_only = false,
-} ]]
+-- ins_left {
+--   'filetype',
+--   cond = conditions.buffer_not_empty,
+--   color = { fg = colors.magenta, gui = 'bold'},
+--   colored = true,
+--   icon_only = false,
+-- }
 
 ins_left {
   'filename',
   cond = conditions.buffer_not_empty,
   color = { fg = colors.magenta, gui = 'bold' },
 }
+
+-- ins_left {
+--   'branch',
+--   icon = '',
+--   color = { fg = colors.violet, gui = 'bold' },
+-- }
 
 local gps = Check_status('nvim-gps')
 ins_left {
@@ -151,9 +157,6 @@ ins_left {
 }
 
 
-ins_left { 'location' }
-
-ins_left { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 
 
 -- Insert mid section. You can make any number of sections in neovim :)
@@ -164,16 +167,11 @@ ins_left {
   end,
 }
 
-ins_right {
-  'branch',
-  icon = '',
-  color = { fg = colors.violet, gui = 'bold' },
-}
 
 ins_right {
   'diff',
   -- Is it me or the symbol for modified us really weird
-  symbols = { added = ' ', modified = '柳 ', removed = ' ' },
+  symbols = { added = ' ', modified = '柳', removed = ' ' },
   diff_color = {
     added = { fg = colors.green },
     modified = { fg = colors.orange },
@@ -219,6 +217,9 @@ ins_right {
   color = { fg = '#ffffff', gui = 'bold' },
 }
 
+-- ins_right { 'location' }
+
+ins_right { 'progress', color = { fg = colors.fg, gui = 'bold' } }
 -- Add components to right sections
 -- ins_right {
 --   'o:encoding', -- option component same as &encoding in viml

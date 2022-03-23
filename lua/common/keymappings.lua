@@ -46,6 +46,19 @@ local keymap_list = {
 	{ mode='i', key = '<C-CR>', map = '<Esc>$a<CR>', opt=opt },
 
 
+  -- lsp show-hover & signature help
+  { mode='n', key = 'K', map = '<cmd>lua vim.lsp.buf.hover()<CR>', opt=opt },
+  { mode='n', key = '<C-;>', map = '<cmd>lua vim.lsp.buf.signature_help()<CR>', opt=opt },
+
+
+  -- goto-preview
+
+  -- d = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "goto-definition",},
+  -- i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "goto-implementation",},
+  -- r = { "<cmd>lua require('goto-preview').goto_preview_references()<CR>", "goto-reference",},
+  -- { mode='n', key='<F2>', map = "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", opt=opt},
+  -- { mode='n', key='<F3>', map = "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", opt=opt},
+  -- { mode='n', key='<F4>', map = "<cmd>lua require('goto-preview').goto_preview_references()<CR>", opt=opt},
 
 	-- dial 0
 	{ mode='n', key = "<A-a>", map = '<cmd>DialIncrement<CR>', opt=opt },

@@ -173,6 +173,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\go.nvim",
     url = "https://github.com/ray-x/go.nvim"
   },
+  ["guihua.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\guihua.lua",
+    url = "https://github.com/ray-x/guihua.lua"
+  },
   ["hop.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\hop.nvim",
@@ -193,11 +198,6 @@ _G.packer_plugins = {
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\iswap.nvim",
     url = "https://github.com/mizlan/iswap.nvim"
   },
-  ["kanagawa.nvim"] = {
-    loaded = true,
-    path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\kanagawa.nvim",
-    url = "https://github.com/rebelot/kanagawa.nvim"
-  },
   ["lsp_signature.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lsp_signature.nvim",
@@ -213,12 +213,18 @@ _G.packer_plugins = {
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\lualine.nvim",
     url = "https://github.com/nvim-lualine/lualine.nvim"
   },
+  ["navigator.lua"] = {
+    loaded = true,
+    path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\navigator.lua",
+    url = "https://github.com/ray-x/navigator.lua"
+  },
   neogit = {
     loaded = true,
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\neogit",
     url = "https://github.com/TimUntersberger/neogit"
   },
   neorg = {
+    config = { "\27LJ\2\n,\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\17config.neorg\frequire\0" },
     load_after = {},
     loaded = false,
     needs_bufread = true,
@@ -250,6 +256,14 @@ _G.packer_plugins = {
     loaded = true,
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\nvim-cmp",
     url = "https://github.com/hrsh7th/nvim-cmp"
+  },
+  ["nvim-code-action-menu"] = {
+    commands = { "CodeActionMenu" },
+    loaded = false,
+    needs_bufread = true,
+    only_cond = false,
+    path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\opt\\nvim-code-action-menu",
+    url = "https://github.com/weilbith/nvim-code-action-menu"
   },
   ["nvim-gomove"] = {
     loaded = true,
@@ -322,7 +336,7 @@ _G.packer_plugins = {
     url = "https://github.com/filipdutescu/renamer.nvim"
   },
   ["shade.nvim"] = {
-    config = { "\27LJ\2\n[\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\20overlay_opacity\0032\17opacity_step\3\1\nsetup\nshade\frequire\0" },
+    config = { "\27LJ\2\n[\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\17opacity_step\3\1\20overlay_opacity\0032\nsetup\nshade\frequire\0" },
     loaded = true,
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\shade.nvim",
     url = "https://github.com/sunjon/shade.nvim"
@@ -383,35 +397,41 @@ _G.packer_plugins = {
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-illuminate",
     url = "https://github.com/RRethy/vim-illuminate"
   },
-  ["vim-nightfly-guicolors"] = {
-    loaded = true,
-    path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\vim-nightfly-guicolors",
-    url = "https://github.com/bluz71/vim-nightfly-guicolors"
-  },
   ["which-key.nvim"] = {
     loaded = true,
     path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\which-key.nvim",
     url = "https://github.com/folke/which-key.nvim"
+  },
+  ["window-picker.nvim"] = {
+    loaded = true,
+    path = "C:\\Users\\Administrator\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\window-picker.nvim",
+    url = "https://github.com/ten3roberts/window-picker.nvim"
   }
 }
 
 time([[Defining packer_plugins]], false)
 -- Config for: shade.nvim
 time([[Config for shade.nvim]], true)
-try_loadstring("\27LJ\2\n[\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\20overlay_opacity\0032\17opacity_step\3\1\nsetup\nshade\frequire\0", "config", "shade.nvim")
+try_loadstring("\27LJ\2\n[\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\2\17opacity_step\3\1\20overlay_opacity\0032\nsetup\nshade\frequire\0", "config", "shade.nvim")
 time([[Config for shade.nvim]], false)
--- Config for: better-escape.nvim
-time([[Config for better-escape.nvim]], true)
-try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18better_escape\frequire\0", "config", "better-escape.nvim")
-time([[Config for better-escape.nvim]], false)
 -- Config for: spellsitter.nvim
 time([[Config for spellsitter.nvim]], true)
 try_loadstring("\27LJ\2\nH\0\0\3\0\4\0\a6\0\0\0'\2\1\0B\0\2\0029\0\2\0005\2\3\0B\0\2\1K\0\1\0\1\0\1\venable\2\nsetup\16spellsitter\frequire\0", "config", "spellsitter.nvim")
 time([[Config for spellsitter.nvim]], false)
+-- Config for: better-escape.nvim
+time([[Config for better-escape.nvim]], true)
+try_loadstring("\27LJ\2\n;\0\0\3\0\3\0\0066\0\0\0'\2\1\0B\0\2\0029\0\2\0B\0\1\1K\0\1\0\nsetup\18better_escape\frequire\0", "config", "better-escape.nvim")
+time([[Config for better-escape.nvim]], false)
 -- Load plugins in order defined by `after`
 time([[Sequenced loading]], true)
 vim.cmd [[ packadd nvim-treesitter ]]
 time([[Sequenced loading]], false)
+
+-- Command lazy-loads
+time([[Defining lazy-load commands]], true)
+pcall(vim.cmd, [[command -nargs=* -range -bang -complete=file CodeActionMenu lua require("packer.load")({'nvim-code-action-menu'}, { cmd = "CodeActionMenu", l1 = <line1>, l2 = <line2>, bang = <q-bang>, args = <q-args>, mods = "<mods>" }, _G.packer_plugins)]])
+time([[Defining lazy-load commands]], false)
+
 vim.cmd [[augroup packer_load_aucmds]]
 vim.cmd [[au!]]
   -- Filetype lazy-loads

@@ -8,13 +8,13 @@ vim.cmd([[
 	hi default BqfSign ctermfg=14 guifg=Cyan
 ]])
 
-vim.cmd[[
-    packadd nvim-bqf
-    " packadd fzf
-    packadd nvim-treesitter
-    " packadd vim-grepper
-    " packadd coc.nvim
-]]
+-- vim.cmd[[
+--     " packadd nvim-bqf
+--     " packadd fzf
+--     " packadd nvim-treesitter
+--     " packadd vim-grepper
+--     " packadd coc.nvim
+-- ]]
 
 
 local bqf = Check_status('bqf')

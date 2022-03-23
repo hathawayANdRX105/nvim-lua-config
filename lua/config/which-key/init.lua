@@ -93,6 +93,7 @@ local leader_maps = {
 
 	q = {
 		name = "+Session",
+		a = { "<cmd>Alpha<CR>", "alpha" },
 		q = { "<cmd>qa!<CR>", "quit-nvim" },
     l = { "<cmd>SessionManager load_session<CR>", "load-session" },
     d = { "<cmd>SessionManager delete_session<CR>", "delete-session" },
@@ -103,10 +104,12 @@ local leader_maps = {
 
 	l = {
 		name = "+Lsp",
-		r = { "<cmd>lua require('renamer').rename({empty=true})<CR>",	"renamer" },
+    r = { "<cmd>lua vim.lsp.buf.rename()<CR>",	"lsp-rename" },
+    R = { "<cmd>lua require('renamer').rename({empty=true})<CR>",	"renamer" },
 
-		R = { "<cmd>lua vim.lsp.buf.rename()<CR>",	"lsp-rename" },
 		a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "code-action" },
+    A = { "<cmd>CodeActionMenu<CR>", "code-action" },
+
 		f = { "<cmd>lua vim.lsp.buf.formatting()<CR>",  "format" },
 		c = { "<cmd>lua vim.lsp.codelens.run()<CR>",  "code-action" },
 		L = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",  "lsp-quickfix" },
@@ -121,6 +124,14 @@ local leader_maps = {
 
 		j = { "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",  "next-fix" },
 		k = { "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>",  "prev-fix" },
+
+    g = {
+      name = "lsp-goto",
+      D = {  '<cmd>lua vim.lsp.buf.declaration()<CR>', 'declaration' },
+      d = {  '<cmd>lua vim.lsp.buf.definition()<CR>', 'definition' },
+      i = {  '<cmd>lua vim.lsp.buf.implementation()<CR>', 'implementation' },
+      r = {  '<cmd>lua vim.lsp.buf.references()<CR>', 'references' },
+    }
 
 	},
 
@@ -181,10 +192,19 @@ local leader_maps = {
 
 local localleader_mappings = {
 	name = "+LocalLeader",
+
 	r = { "<cmd>lua Run()<CR>",	"task-run"},
 	t = { "<cmd>lua TestProject()<CR>",	"task-test"},
 	b = { "<cmd>lua AsyncRunByOpts('build')<CR>",	"task-build"},
+
+  a = { "<cmd>CodeActionMenu<CR>", "code-action" },
 	q = { "<cmd>lua require'util.toggle'.QfToggle()<CR>", "quickfix-list" },
+	d = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
+	i = {
+		name = "+iswap",
+		i = { "<cmd>ISwapWith<CR>",	"swap-with-current" },
+		s = { "<cmd>ISwap<CR>",		"swap-select" },
+	},
 
 	s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
 	f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
@@ -197,22 +217,25 @@ local g_mappings = {
 	w = { "<cmd>HopWord<CR>",	"hop-word" },
 	l = { "<cmd>HopLine<CR>",	"hop-line" },
 	j = { "<cmd>HopChar1<CR>",	"hop-char1" },
-  -- window swap / window zap
-	p = { "<cmd>WindowPick<CR>",	"window-pick" },
+
+
 	[';'] = { [[<cmd>lua require("Comment.api").toggle_current_linewise()<CR>]],
 		"comment-line"
 	},
 	['/'] = { [[<cmd>lua require("Comment.api").toggle_current_blockwise()<CR>]],
 		"comment-block"
 	},
-	-- c = { name = "+line-comment" },
-	b = { "<cmd>:BufferPick<CR>",  "buffer-pick" },
 
-	i = {
-		name = "+iswap",
-		i = { "<cmd>ISwapWith<CR>",	"swap-with-current" },
-		s = { "<cmd>ISwap<CR>",		"swap-select" },
-	},
+  -- window swap / window zap
+	p = { "<cmd>WindowPick<CR>",	"window-pick" },
+	b = { "<cmd>BufferPick<CR>",  "buffer-pick" },
+
+  d = { "<cmd>Trouble lsp_definitions<CR>", "trouble-definition" },
+  r = { "<cmd>Trouble lsp_references<CR>", "trouble-reference" },
+  i = { "<cmd>Trouble lsp_implementations<CR>", "trouble-implemention" },
+  y = { "<cmd>Trouble lsp_type_definitions<CR>", "trouble-type-definition" },
+  q = { "<cmd>Trouble quickfix<CR>", "trouble-quickfix" },
+
 
 	t = {
 		name = "+Todo-item",
@@ -236,6 +259,13 @@ local g_vmode_mappings = {
 	-- },
 	[';'] = { "comment-block" },
 	['/'] = { "comment-line" },
+}
+
+local b_mappings = {
+  name = '+Preview',
+  d = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "goto-preview-definition",},
+  i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "goto-preview-implementation",},
+  r = { "<cmd>lua require('goto-preview').goto_preview_references()<CR>", "goto-preview-reference",},
 }
 
 local left_bracket_mappings = {
@@ -341,19 +371,25 @@ end
 local ft_mappings = require'system-build.mode-action'.mappings
 
 local leader_opts = setup_opts("n", "<leader>", nil, true, true, true)
+
 local g_opts = setup_opts("n", "g", nil, true, true, true)
 local g_vmode_opts = setup_opts("v", "g", nil, true, true, true)
+
+local b_opts = setup_opts("n", "b", nil, true, true, true)
+
 local left_bracket_opts = setup_opts("n", "[", nil, true, true, true)
 local right_bracket_opts = setup_opts("n", "]", nil, true, true, true)
 
 local localleader_opts = setup_opts("n", "<localleader>", nil, true, true, true)
 local ft_opts = setup_opts("n", ";", nil, true, true, true)
 
-    which_key.setup(setup)
-    which_key.register(leader_maps, leader_opts)
-    which_key.register(localleader_mappings, localleader_opts)
-    which_key.register(ft_mappings, ft_opts)
-    which_key.register(g_mappings, g_opts)
-    which_key.register(g_vmode_mappings, g_vmode_opts)
-    which_key.register(left_bracket_mappings, left_bracket_opts)
-    which_key.register(right_bracket_mappings, right_bracket_opts)
+which_key.setup(setup)
+
+which_key.register(leader_maps, leader_opts)
+which_key.register(localleader_mappings, localleader_opts)
+which_key.register(ft_mappings, ft_opts)
+which_key.register(g_mappings, g_opts)
+which_key.register(g_vmode_mappings, g_vmode_opts)
+which_key.register(b_mappings, b_opts)
+which_key.register(left_bracket_mappings, left_bracket_opts)
+which_key.register(right_bracket_mappings, right_bracket_opts)

@@ -51,18 +51,18 @@ return require('packer').startup(function(use)
 	use 'kyazdani42/nvim-tree.lua'                  -- Explorer
 	use 'simrat39/symbols-outline.nvim'		          -- symbols outline
 	use "nvim-telescope/telescope-file-browser.nvim"-- telescope browser
-  -- use 'yorickpeterse/nvim-window'
-  use 'ten3roberts/window-picker.nvim'
+  use 'ten3roberts/window-picker.nvim'            -- window-picker
+  use 'rmagatti/goto-preview'                     -- look up definitions & implements
 
 	-- text opertion
-	use { 'phaazon/hop.nvim', branch = 'v1'}	-- motion
-	use 'Mephistophiles/surround.nvim'		-- surround
-	use 'windwp/nvim-autopairs'			-- autopairs
-	use 'numToStr/Comment.nvim'			-- comment
-	use 'mizlan/iswap.nvim'				-- swap
-	use 'abecodes/tabout.nvim'			-- tab out bracket
-	use 'booperlv/nvim-gomove' 	 	 	-- move line/block
-	use 'monaqa/dial.nvim' 	 	 	 	-- dial number/time/bool
+	use { 'phaazon/hop.nvim', branch = 'v1'}	      -- motion
+	use 'Mephistophiles/surround.nvim'		          -- surround
+	use 'windwp/nvim-autopairs'			                -- autopairs
+	use 'numToStr/Comment.nvim'			                -- comment
+	use 'mizlan/iswap.nvim'				                  -- swap
+	use 'abecodes/tabout.nvim'			                -- tab out bracket
+	use 'booperlv/nvim-gomove' 	 	 	                -- move line/block
+	use 'monaqa/dial.nvim' 	 	 	 	                  -- dial number/time/bool
 
 	-- project manage
 	use "ahmedkhalf/project.nvim"				-- project switch
@@ -77,6 +77,8 @@ return require('packer').startup(function(use)
 	use 'williamboman/nvim-lsp-installer' 			-- lsp server installer
 	use "ray-x/lsp_signature.nvim" 				-- lsp signnature plugin
 	use "folke/trouble.nvim"				-- lsp quick-fix replace
+  use {  'weilbith/nvim-code-action-menu', cmd = 'CodeActionMenu', }
+  -- use { 'tami5/lspsaga.nvim', branch = 'nvim6.0' }-- maintained fork for lspsaga
 	-- use 'jose-elias-alvarez/null-ls.nvim'
 
 	-- completion
@@ -115,11 +117,11 @@ return require('packer').startup(function(use)
   use 'karb94/neoscroll.nvim'
   use 'romgrk/barbar.nvim'			-- buffer tab
 	use "beauwilliams/focus.nvim"			-- window focus
-  use { 'sunjon/shade.nvim',
-    config = function ()
-      require'shade'.setup({ overlay_opacity = 50, opacity_step = 1, })
-    end
-  }                              -- window shade
+  -- use { 'sunjon/shade.nvim',
+  --   config = function ()
+  --     require'shade'.setup({ overlay_opacity = 50, opacity_step = 1, })
+  --   end
+  -- }                              -- window shade
 
 	-- git
 	use 'lewis6991/gitsigns.nvim'			-- git sign

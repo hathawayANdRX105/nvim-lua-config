@@ -83,8 +83,8 @@ extensions = {
 	},
 	},
 	["ui-select"] = {
-	      require("telescope.themes").get_dropdown {
-		preview = false,
+    require("telescope.themes").get_dropdown {
+      preview = false,
 		}
 	},
 

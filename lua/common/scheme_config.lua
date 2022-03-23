@@ -36,8 +36,8 @@ return {
             comments = "italic",
             functions = "italic",
             keywords = "italic",
-            strings = "NONE",
-            variables = "italic",
+            strings = "italic",
+            variables = "NONE",
         },
         integrations = {
           treesitter = true,
@@ -60,14 +60,9 @@ return {
           cmp = true,
           lsp_saga = true,
           gitgutter = false,
-          gitsigns = true,
+          gitsigns = false,
           telescope = true,
           nvimtree = {
-            enabled = true,
-            show_root = false,
-            transparent_panel = false,
-          },
-          neotree = {
             enabled = true,
             show_root = false,
             transparent_panel = false,
@@ -75,26 +70,31 @@ return {
           which_key = true,
           indent_blankline = {
             enabled = true,
-            colored_indent_levels = false,
+            colored_indent_levels = true,
           },
           neogit = true,
           barbar = true,
           ts_rainbow = true,
           hop = true,
           symbols_outline = true,
+          notify = true,
+          dashboard = true,
 
-          dashboard = false,
+          neotree = {
+            enabled = false,
+            show_root = false,
+            transparent_panel = false,
+          },
           vim_sneak = false,
           fern = false,
           bufferline = false,
           markdown = false,
           lightspeed = false,
-          notify = false,
           telekasten = false,
         }
       })
 
-			require('lualine').setup { options = { theme = "catppuccin" }}
+			require('lualine').setup { options = { theme = 'catppuccin' }}
 		end
 
 	},
@@ -119,7 +119,7 @@ return {
 			moonlight_borders = false,
 			moonlight_disable_background = false,
     },
-    setup = function() 
+    setup = function()
       require('lualine').setup { options = { theme = 'moonlight' } }
       require('moonlight').set{}
     end
@@ -136,7 +136,7 @@ return {
       calvera_italic_functions = true,
     },
     setup = function()
-     require('calvera').set() 
+     require('calvera').set()
     end
   }
 }
