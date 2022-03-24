@@ -8,6 +8,8 @@ local leader_maps = {
   ["3"] = { "<cmd>ToggleTerm<CR>", "terminal" },
   ['4'] = { "<cmd>Telescop projects<CR>", "switch-projects" },
   ['0'] = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
+  ['<CR>'] = { "<cmd>source<CR>", "source" },
+
   d = {
     name = "+Debug",
     d = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
@@ -47,16 +49,17 @@ local leader_maps = {
 
   b = {
     name = "+Buffer",
-    k = { "<cmd>BufferClose<CR>", "kill" },
-    d = { "<cmd>BufferDelete<CR>", "delete" },
-    n = { "<cmd>BufferNext<CR>", "buf-next" },
-    p = { "<cmd>BufferPrevious<CR>", "buf-prev" },
+    k = { "<cmd>BufferClose<CR>"    , "kill" },
+    d = { "<cmd>BufferDelete<CR>"   , "delete" },
+    n = { "<cmd>BufferNext<CR>"     , "buf-next" },
+    l = { "<cmd>BufferLast<CR>"     , "buf-last" },
+    p = { "<cmd>BufferPrevious<CR>" , "buf-prev" },
     b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
     o = {
       name = "+Buffer-Order",
-      n = { "<cmd>BufferOrderByBufferNumber<CR>",	'order-by-number'},
-      d = { "<cmd>BufferOrderByDirectory<CR>",	'order-by-directory'},
-      l = { "<cmd>BufferOrderByLanguage<CR>",		'order-by-language'},
+      n = { "<cmd>BufferOrderByBufferNumber<CR>" , 'order-by-number'},
+      d = { "<cmd>BufferOrderByDirectory<CR>"    , 'order-by-directory'},
+      l = { "<cmd>BufferOrderByLanguage<CR>"     , 'order-by-language'},
     }
   },
 
@@ -209,15 +212,18 @@ local localleader_mappings = {
   s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
   f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
 
-  ['='] = { "mqGVgg='q", "indent-file" },
+  ['='] = { "mqGVgg=`q", "indent-file" },
 }
 
 
 local g_mappings = {
   name = "+goto",
-  w = { "<cmd>HopWord<CR>",	"hop-word" },
-  l = { "<cmd>HopLine<CR>",	"hop-line" },
-  j = { "<cmd>HopChar1<CR>",	"hop-char1" },
+  a = { '<C-Home>', 'goto-head' },
+  e = { '<C-End>', 'goto-end' },
+
+  w = { '<cmd>HopWord<CR>',	'hop-word' },
+  l = { '<cmd>HopLine<CR>',	'hop-line' },
+  j = { '<cmd>HopChar1<CR>',	'hop-char1' },
 
 
   [';'] = { [[<cmd>lua require("Comment.api").toggle_current_linewise()<CR>]],
@@ -263,10 +269,24 @@ local g_vmode_mappings = {
 }
 
 local b_mappings = {
-  name = '+Preview',
+  name = '+Quick-buf',
   d = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "goto-preview-definition",},
   i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "goto-preview-implementation",},
   r = { "<cmd>lua require('goto-preview').goto_preview_references()<CR>", "goto-preview-reference",},
+
+  o = { "<cmd>BufferPin<CR>", "buf-pin"},
+  O = { "<cmd>BufferCloseAllButPinned<CR>", "buf-close-except-pinned" },
+
+  h = { "<cmd>BufferCloseLeft<CR>", "buf-close-left" },
+  l = { "<cmd>BufferCloseRight<CR>", "buf-close-right" },
+
+  w = { "<cmd>BufferWipeout<CR>", "buf-wipe" },
+  k = { "<cmd>BufferClose<CR>", "buf-close",},
+  K = { "<cmd>BufferCloseButCurrent<CR>", "buf-close-but-current" },
+
+  n = { "<cmd>BufferPrevious<CR>", "buf-prev" },
+  p = { "<cmd>BufferNext<CR>", "buf-next" },
+
 }
 
 local left_bracket_mappings = {
@@ -277,6 +297,7 @@ local left_bracket_mappings = {
     [[ <cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
     'prev-diagnostic'
   },
+  ['<space>'] = { 'meO<Esc>`e', "plug-line-above" },
 }
 
 local right_bracket_mappings = {
@@ -287,6 +308,7 @@ local right_bracket_mappings = {
     [[ <cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
     'prev-diagnostic'
   },
+  ['<space>'] = { 'meo<Esc>`e', "plug-line-below" },
 }
 
 local setup = {
