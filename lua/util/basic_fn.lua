@@ -17,5 +17,4 @@ function TableSize(table)
 end
 
 
--- vim.cmd[[command! Toggle execute ':lua QfToggle()']]
 

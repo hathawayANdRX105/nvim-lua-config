@@ -1,129 +1,129 @@
 local which_key = Check_status("which-key")
 
 local leader_maps = {
-	['`'] = { "<cmd>SymbolsOutline<CR>", "symbols" },
-	-- ["1"] = { "<cmd>lua require'util.toggle'.TreeToggle()<CR>", "explorer" },
-	["1"] = { "<cmd>lua require'nvim-tree'.toggle()<CR>", "explorer" },
-	["2"] = { "<cmd>Telescope file_browser<CR>", "file-browser" },
-	["3"] = { "<cmd>ToggleTerm<CR>", "terminal" },
-	['4'] = { "<cmd>Telescop projects<CR>", "switch-projects" },
-	['0'] = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
-	d = {
-		name = "+Debug",
-		d = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
-		o = { "<cmd>lua require('dapui').open()<CR>", "debug-open" },
-		c = { "<cmd>lua require('dapui').close()<CR>", "debug-close"},
+  ['`'] = { "<cmd>SymbolsOutline<CR>", "symbols" },
+  -- ["1"] = { "<cmd>lua require'util.toggle'.TreeToggle()<CR>", "explorer" },
+  ["1"] = { "<cmd>lua require'nvim-tree'.toggle()<CR>", "explorer" },
+  ["2"] = { "<cmd>Telescope file_browser<CR>", "file-browser" },
+  ["3"] = { "<cmd>ToggleTerm<CR>", "terminal" },
+  ['4'] = { "<cmd>Telescop projects<CR>", "switch-projects" },
+  ['0'] = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
+  d = {
+    name = "+Debug",
+    d = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
+    o = { "<cmd>lua require('dapui').open()<CR>", "debug-open" },
+    c = { "<cmd>lua require('dapui').close()<CR>", "debug-close"},
 
-	},
+  },
 
-	v = {
-		name = "+View",
-		c = { "<cmd>LuaCacheClear<CR>", 	"cache-clear" },
-		l = { "<cmd>LuaCacheLog<CR>", 		"cache-log" },
-		p = { "<cmd>LuaCacheProfile<CR>",	"cache-profile"},
-	},
+  v = {
+    name = "+View",
+    c = { "<cmd>LuaCacheClear<CR>", 	"cache-clear" },
+    l = { "<cmd>LuaCacheLog<CR>", 		"cache-log" },
+    p = { "<cmd>LuaCacheProfile<CR>",	"cache-profile"},
+  },
 
-	w = {
-		name = "+Window",
-		h = { "<C-W>h", "to-left" },
-		j = { "<C-W>j", "to-down" },
-		k = { "<C-W>k", "to-up"   },
-		l = { "<C-W>l", "to-right"},
+  w = {
+    name = "+Window",
+    h = { "<C-W>h", "to-left" },
+    j = { "<C-W>j", "to-down" },
+    k = { "<C-W>k", "to-up"   },
+    l = { "<C-W>l", "to-right"},
 
-		H = { "<C-W>H", "move-left" },
-		J = { "<C-W>J", "move-down" },
-		K = { "<C-W>K", "move-up"   },
-		L = { "<C-W>L", "move-right"},
+    H = { "<C-W>H", "move-left" },
+    J = { "<C-W>J", "move-down" },
+    K = { "<C-W>K", "move-up"   },
+    L = { "<C-W>L", "move-right"},
 
-		s = { "<cmd>lua require'focus'.split_command('j')<CR>", "split"},
-		v = { "<cmd>lua require'focus'.split_command('l')<CR>", "vertical"},
+    s = { "<cmd>lua require'focus'.split_command('j')<CR>", "split"},
+    v = { "<cmd>lua require'focus'.split_command('l')<CR>", "vertical"},
 
-		-- n = { "<C-w>w", "win-next"},
-		p = { "<cmd>WindowPick<CR>", "window-pick"},
-		z = { "<cmd>WindowZap<CR>", "window-zap"},
-		w = { "<cmd>WindowSwap<CR>", "window-swap"},
-		c = { "<C-w>c", "close"},
-	},
+    -- n = { "<C-w>w", "win-next"},
+    p = { "<cmd>WindowPick<CR>", "window-pick"},
+    z = { "<cmd>WindowZap<CR>", "window-zap"},
+    w = { "<cmd>WindowSwap<CR>", "window-swap"},
+    c = { "<C-w>c", "close"},
+  },
 
-	b = {
-		name = "+Buffer",
-		k = { "<cmd>BufferClose<CR>", "kill" },
-		d = { "<cmd>BufferDelete<CR>", "delete" },
-		n = { "<cmd>BufferNext<CR>", "buf-next" },
-		p = { "<cmd>BufferPrevious<CR>", "buf-prev" },
-		b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
-		o = {
-			name = "+Buffer-Order",
-			n = { "<cmd>BufferOrderByBufferNumber<CR>",	'order-by-number'},
-			d = { "<cmd>BufferOrderByDirectory<CR>",	'order-by-directory'},
-			l = { "<cmd>BufferOrderByLanguage<CR>",		'order-by-language'},
-		}
-	},
+  b = {
+    name = "+Buffer",
+    k = { "<cmd>BufferClose<CR>", "kill" },
+    d = { "<cmd>BufferDelete<CR>", "delete" },
+    n = { "<cmd>BufferNext<CR>", "buf-next" },
+    p = { "<cmd>BufferPrevious<CR>", "buf-prev" },
+    b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
+    o = {
+      name = "+Buffer-Order",
+      n = { "<cmd>BufferOrderByBufferNumber<CR>",	'order-by-number'},
+      d = { "<cmd>BufferOrderByDirectory<CR>",	'order-by-directory'},
+      l = { "<cmd>BufferOrderByLanguage<CR>",		'order-by-language'},
+    }
+  },
 
-	f = {
-		name = "+File",
-		f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
-		r = { "<cmd>Telescop oldfiles<CR>", "recent-file" },
-		g = { "<cmd>Telescop git_files<CR>", "git-file" },
-		s = { "<cmd>silent write<CR>", "save-file" },
-		b = { "<cmd>Telescope file_browser<CR>", "file-browser" },
-	},
+  f = {
+    name = "+File",
+    f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
+    r = { " <cmd>Telescop oldfiles<CR>      " , " recent-file  " },
+    g = { " <cmd>Telescop git_files<CR>     " , " git-file     " },
+    s = { " <cmd>silent write<CR>           " , " save-file    " },
+    b = { " <cmd>Telescope file_browser<CR> " , " file-browser " },
+  },
 
-	s = {
-		name = "+Search",
-		s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
-		k = { "<cmd>Telescop keymaps<CR>", "keymaps" },
-		q = { "<cmd>Telescop quickfix<CR>", "quickfix" },
-		m = { "<cmd>Telescop marks<CR>", "marks" },
-		c = { "<cmd>Telescop commands<CR>", "commands" },
-		h = { "<cmd>Telescop search_history<CR>", "search-history" },
-		t = { "<cmd>Telescop tags<CR>", "tags" },
-	},
+  s = {
+    name = "+Search",
+    s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
+    k = { "<cmd>Telescop keymaps<CR>", "keymaps" },
+    q = { "<cmd>Telescop quickfix<CR>", "quickfix" },
+    m = { "<cmd>Telescop marks<CR>", "marks" },
+    c = { "<cmd>Telescop commands<CR>", "commands" },
+    h = { "<cmd>Telescop search_history<CR>", "search-history" },
+    t = { "<cmd>Telescop tags<CR>", "tags" },
+  },
 
-	p = {
-		name = "+Project",
-		p = { "<cmd>Telescop projects<CR>", "switch-projects" },
-		s = { "<cmd>Telescop grep_string<CR>", "search-string" },
-		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols", },
-		w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Diagnostics", },
-		l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "show-folder", },
-		a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "add-folder", },
-		d = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "remove-folder", },
-	},
+  p = {
+    name = "+Project",
+    p = { "<cmd>Telescop projects<CR>", "switch-projects" },
+    s = { "<cmd>Telescop grep_string<CR>", "search-string" },
+    S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<cr>", "Symbols", },
+    w = { "<cmd>Telescope lsp_workspace_diagnostics<cr>", "Diagnostics", },
+    l = { "<cmd>lua print(vim.inspect(vim.lsp.buf.list_workspace_folders()))<CR>", "show-folder", },
+    a = { "<cmd>lua vim.lsp.buf.add_workspace_folder()<CR>", "add-folder", },
+    d = { "<cmd>lua vim.lsp.buf.remove_workspace_folder()<CR>", "remove-folder", },
+  },
 
-	q = {
-		name = "+Session",
-		a = { "<cmd>Alpha<CR>", "alpha" },
-		q = { "<cmd>qa!<CR>", "quit-nvim" },
+  q = {
+    name = "+Session",
+    a = { "<cmd>Alpha<CR>", "alpha" },
+    q = { "<cmd>qa!<CR>", "quit-nvim" },
     l = { "<cmd>SessionManager load_session<CR>", "load-session" },
     d = { "<cmd>SessionManager delete_session<CR>", "delete-session" },
     s = { "<cmd>SessionManager save_current_session<CR>", "save-session" },
     c = { "<cmd>SessionManager load_current_session<CR>", "load-current-session" },
     ['<tab>'] = { "<cmd>SessionManager load_last_session<CR>", "load-last-session" },
-	},
+  },
 
-	l = {
-		name = "+Lsp",
+  l = {
+    name = "+Lsp",
     r = { "<cmd>lua vim.lsp.buf.rename()<CR>",	"lsp-rename" },
     R = { "<cmd>lua require('renamer').rename({empty=true})<CR>",	"renamer" },
 
-		a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "code-action" },
+    a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "code-action" },
     A = { "<cmd>CodeActionMenu<CR>", "code-action" },
 
-		f = { "<cmd>lua vim.lsp.buf.formatting()<CR>",  "format" },
-		c = { "<cmd>lua vim.lsp.codelens.run()<CR>",  "code-action" },
-		L = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",  "lsp-quickfix" },
+    f = { "<cmd>lua vim.lsp.buf.formatting()<CR>",  "format" },
+    c = { "<cmd>lua vim.lsp.codelens.run()<CR>",  "code-action" },
+    L = { "<cmd>lua vim.lsp.diagnostic.set_loclist()<CR>",  "lsp-quickfix" },
 
-		q = { "<cmd>TroubleToggle quickfix<CR>",  "quickfix" },
-		l = { "<cmd>TroubleToggle loclist<CR>",  "quickfix" },
-		w = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "trouble-workplace" },
-		F = { "<cmd>TroubleToggle lsp_references<CR>",  "trouble-reference" },
+    q = { "<cmd>TroubleToggle quickfix<CR>",  "quickfix" },
+    l = { "<cmd>TroubleToggle loclist<CR>",  "quickfix" },
+    w = { "<cmd>TroubleToggle workspace_diagnostics<CR>", "trouble-workplace" },
+    F = { "<cmd>TroubleToggle lsp_references<CR>",  "trouble-reference" },
 
-		s = { "<cmd>Telescope lsp_document_symbols<CR>",  "document-symbols" },
-		S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",  "workplace-symbols" },
+    s = { "<cmd>Telescope lsp_document_symbols<CR>",  "document-symbols" },
+    S = { "<cmd>Telescope lsp_dynamic_workspace_symbols<CR>",  "workplace-symbols" },
 
-		j = { "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",  "next-fix" },
-		k = { "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>",  "prev-fix" },
+    j = { "<cmd>lua vim.diagnostic.goto_next({buffer=0})<CR>",  "next-fix" },
+    k = { "<cmd>lua vim.diagnostic.goto_prev({buffer=0})<CR>",  "prev-fix" },
 
     g = {
       name = "lsp-goto",
@@ -133,102 +133,103 @@ local leader_maps = {
       r = {  '<cmd>lua vim.lsp.buf.references()<CR>', 'references' },
     }
 
-	},
+  },
 
-	t = {
-		name = "+Toggle",
-		t = { "<cmd>Telescope<CR>", "telescope"},
-		i = { "<cmd>LspInstallInfo<CR>", "lsp-installer"},
-		d = { "<cmd>Gitsigns diffthis HEAD<CR>", "diff" },
-		s = { "<cmd>Gitsigns toggle_signs<CR>", "signs" },
-		h = { "<cmd>:set hlsearch!<CR>", "hlsearch" },
-		g = { "<cmd>Neogit<CR>", "git" },
-		I = { "<cmd>PackerInstall<CR>", "packer-install" },
-		C = { "<cmd>PackerClean<CR>", "packer-clean" },
-		S = { "<cmd>PackerSync<CR>", "packer-sync" },
-	},
+  t = {
+    name = "+Toggle",
+    t = { "<cmd>Telescope<CR>", "telescope"},
+    i = { "<cmd>LspInstallInfo<CR>", "lsp-installer"},
+    d = { "<cmd>Gitsigns diffthis HEAD<CR>", "diff" },
+    s = { "<cmd>Gitsigns toggle_signs<CR>", "signs" },
+    h = { "<cmd>:set hlsearch!<CR>", "hlsearch" },
+    g = { "<cmd>Neogit<CR>", "git" },
+    I = { "<cmd>PackerInstall<CR>", "packer-install" },
+    C = { "<cmd>PackerClean<CR>", "packer-clean" },
+    S = { "<cmd>PackerSync<CR>", "packer-sync" },
+  },
 
-	j = {
-		name = "+Jump",
-		j = { "<cmd>HopChar1<CR>",	"hop-char1" },
-		w = { "<cmd>HopWord<CR>",	"hop-word" },
-		l = { "<cmd>HopLine<CR>",	"hop-line" },
-		p = { "<cmd>HopPattern<CR>",	"hop-pattern" },
-		k = { "<cmd>HopChar2<CR>",	"hop-char2" },
-	},
+  j = {
+    name = "+Jump",
+    j = { "<cmd>HopChar1<CR>",	"hop-char1" },
+    w = { "<cmd>HopWord<CR>",	"hop-word" },
+    l = { "<cmd>HopLine<CR>",	"hop-line" },
+    p = { "<cmd>HopPattern<CR>",	"hop-pattern" },
+    k = { "<cmd>HopChar2<CR>",	"hop-char2" },
+  },
 
-	g = {
-		name = "+Git",
-		g = { "<cmd>Neogit kind=split_above<CR>",	"neogit-status" },
-		c = { "<cmd>Neogit commit<CR>",			"neogit-commit" },
-		b = { "<cmd>Neogit branch<CR>",			"neogit-branch" },
-		r = { "<cmd>Neogit rebase<CR>",			"neogit-rebase" },
-		p = { "<cmd>Neogit pull<CR>",			"neogit-pull" },
-		P = { "<cmd>Neogit push<CR>",			"neogit-push" },
-		Z = { "<cmd>Neogit stash<CR>",			"neogit-stash" },
-		L = { "<cmd>Neogit log<CR>",			"neogit-log" },
-		j = { "<cmd>Gitsigns prev_hunk<CR>",		"prev-hunk" },
-		k = { "<cmd>Gitsigns next_hunk<CR>",		"next-hunk" },
-		v = { "<cmd>Gitsigns preview_hunk<CR>",		"preview-hunk" },
-		s = {
-			name = "+Stage",
-			h = { "<cmd>Gitsigns stage_hunk<CR>", "stage-hunk" },
-			b = { "<cmd>Gitsigns stage_buffer<CR>", "stage-buffer" },
-			u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "undo-stage" },
-		},
-		R = {
-			name = "+Reset",
-			h = { "<cmd>Gitsigns reset_hunk<CR>", "reset-hunk" },
-			b = { "<cmd>Gitsigns reset_buffer<CR>", "reset-buffer" },
-		},
-		d = {
-			name = "+Diff",
-			o = { "<cmd>DiffviewOpen<CR>",			"diff-view" },
-			c = { "<cmd>DiffviewClose<CR>",			"diff-view-close" },
-			h = { "<cmd>DiffviewFileHistory<CR>",		"diff-file-history"},
-		},
-	}
+  g = {
+    name = "+Git",
+    g = { "<cmd>Neogit kind=split_above<CR>",	"neogit-status" },
+    c = { "<cmd>Neogit commit<CR>",			"neogit-commit" },
+    b = { "<cmd>Neogit branch<CR>",			"neogit-branch" },
+    r = { "<cmd>Neogit rebase<CR>",			"neogit-rebase" },
+    p = { "<cmd>Neogit pull<CR>",			"neogit-pull" },
+    P = { "<cmd>Neogit push<CR>",			"neogit-push" },
+    Z = { "<cmd>Neogit stash<CR>",			"neogit-stash" },
+    L = { "<cmd>Neogit log<CR>",			"neogit-log" },
+    j = { "<cmd>Gitsigns prev_hunk<CR>",		"prev-hunk" },
+    k = { "<cmd>Gitsigns next_hunk<CR>",		"next-hunk" },
+    v = { "<cmd>Gitsigns preview_hunk<CR>",		"preview-hunk" },
+    s = {
+      name = "+Stage",
+      h = { "<cmd>Gitsigns stage_hunk<CR>", "stage-hunk" },
+      b = { "<cmd>Gitsigns stage_buffer<CR>", "stage-buffer" },
+      u = { "<cmd>Gitsigns undo_stage_hunk<CR>", "undo-stage" },
+    },
+    R = {
+      name = "+Reset",
+      h = { "<cmd>Gitsigns reset_hunk<CR>", "reset-hunk" },
+      b = { "<cmd>Gitsigns reset_buffer<CR>", "reset-buffer" },
+    },
+    d = {
+      name = "+Diff",
+      o = { "<cmd>DiffviewOpen<CR>",			"diff-view" },
+      c = { "<cmd>DiffviewClose<CR>",			"diff-view-close" },
+      h = { "<cmd>DiffviewFileHistory<CR>",		"diff-file-history"},
+    },
+  }
 }
 
 local localleader_mappings = {
-	name = "+LocalLeader",
+  name = "+LocalLeader",
 
-	r = { "<cmd>lua Run()<CR>",	"task-run"},
-	t = { "<cmd>lua TestProject()<CR>",	"task-test"},
-	b = { "<cmd>lua AsyncRunByOpts('build')<CR>",	"task-build"},
+  r = { "<cmd>lua Run()<CR>",	"task-run"},
+  t = { "<cmd>lua TestProject()<CR>",	"task-test"},
+  b = { "<cmd>lua AsyncRunByOpts('build')<CR>",	"task-build"},
 
   a = { "<cmd>CodeActionMenu<CR>", "code-action" },
-	q = { "<cmd>lua require'util.toggle'.QfToggle()<CR>", "quickfix-list" },
-	d = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
-	i = {
-		name = "+iswap",
-		i = { "<cmd>ISwapWith<CR>",	"swap-with-current" },
-		s = { "<cmd>ISwap<CR>",		"swap-select" },
-	},
+  q = { "<cmd>lua require'util.toggle'.QfToggle()<CR>", "quickfix-list" },
+  d = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
+  i = {
+    name = "+iswap",
+    i = { "<cmd>ISwapWith<CR>",	"swap-with-current" },
+    s = { "<cmd>ISwap<CR>",		"swap-select" },
+  },
 
-	s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
-	f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
+  s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
+  f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
 
+  ['='] = { "mqGVgg='q", "indent-file" },
 }
 
 
 local g_mappings = {
-	name = "+goto",
-	w = { "<cmd>HopWord<CR>",	"hop-word" },
-	l = { "<cmd>HopLine<CR>",	"hop-line" },
-	j = { "<cmd>HopChar1<CR>",	"hop-char1" },
+  name = "+goto",
+  w = { "<cmd>HopWord<CR>",	"hop-word" },
+  l = { "<cmd>HopLine<CR>",	"hop-line" },
+  j = { "<cmd>HopChar1<CR>",	"hop-char1" },
 
 
-	[';'] = { [[<cmd>lua require("Comment.api").toggle_current_linewise()<CR>]],
-		"comment-line"
-	},
-	['/'] = { [[<cmd>lua require("Comment.api").toggle_current_blockwise()<CR>]],
-		"comment-block"
-	},
+  [';'] = { [[<cmd>lua require("Comment.api").toggle_current_linewise()<CR>]],
+    "comment-line"
+  },
+  ['/'] = { [[<cmd>lua require("Comment.api").toggle_current_blockwise()<CR>]],
+    "comment-block"
+  },
 
   -- window swap / window zap
-	p = { "<cmd>WindowPick<CR>",	"window-pick" },
-	b = { "<cmd>BufferPick<CR>",  "buffer-pick" },
+  p = { "<cmd>WindowPick<CR>",	"window-pick" },
+  b = { "<cmd>BufferPick<CR>",  "buffer-pick" },
 
   d = { "<cmd>Trouble lsp_definitions<CR>", "trouble-definition" },
   r = { "<cmd>Trouble lsp_references<CR>", "trouble-reference" },
@@ -237,28 +238,28 @@ local g_mappings = {
   q = { "<cmd>Trouble quickfix<CR>", "trouble-quickfix" },
 
 
-	t = {
-		name = "+Todo-item",
-		u = "task-undo",
-		p = "pending",
-		d = "done",
-		h = "on-hold",
-		c = "cancel",
-		r = "recurring",
-		i = "important",
-	}
+  t = {
+    name = "+Todo-item",
+    u = "task-undo",
+    p = "pending",
+    d = "done",
+    h = "on-hold",
+    c = "cancel",
+    r = "recurring",
+    i = "important",
+  }
 }
 
 local g_vmode_mappings = {
-	name = "+goto",
-	-- [';'] = { [[<cmd>lua require("Comment.api").locked.toggle_linewise_op(vim.fn.visualmode())<CR>]],
-	-- 	"comment-block"
-	-- },
-	-- ['/'] = { [[<cmd>lua require("Comment.api").locked.toggle_blockwise_op(vim.fn.visualmode())<CR>]],
-	-- 	"comment-line"
-	-- },
-	[';'] = { "comment-block" },
-	['/'] = { "comment-line" },
+  name = "+goto",
+  -- [';'] = { [[<cmd>lua require("Comment.api").locked.toggle_linewise_op(vim.fn.visualmode())<CR>]],
+  -- 	"comment-block"
+  -- },
+  -- ['/'] = { [[<cmd>lua require("Comment.api").locked.toggle_blockwise_op(vim.fn.visualmode())<CR>]],
+  -- 	"comment-line"
+  -- },
+  [';'] = { "comment-block" },
+  ['/'] = { "comment-line" },
 }
 
 local b_mappings = {
@@ -269,23 +270,23 @@ local b_mappings = {
 }
 
 local left_bracket_mappings = {
-	name = "+Prev-Nav",
-	c = { "&diff ? ']c' : '<cmd>Gitsigns prev_hunk<CR>'" ,		"prev-hunk" },
-	t = { '<cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>' ,		"prev-trouble" },
-	d = {
-		[[ <cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
-		'prev-diagnostic'
-	},
+  name = "+Prev-Nav",
+  c = { "&diff ? ']c' : '<cmd>Gitsigns prev_hunk<CR>'" ,		"prev-hunk" },
+  t = { '<cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>' ,		"prev-trouble" },
+  d = {
+    [[ <cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
+    'prev-diagnostic'
+  },
 }
 
 local right_bracket_mappings = {
-	name = "+Next-Nav",
-	c = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'" ,		"next-hunk" },
-	t = { '<cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>' ,		"next-trouble" },
-	d = {
-		[[ <cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
-		'prev-diagnostic'
-	},
+  name = "+Next-Nav",
+  c = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'" ,		"next-hunk" },
+  t = { '<cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>' ,		"next-trouble" },
+  d = {
+    [[ <cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
+    'prev-diagnostic'
+  },
 }
 
 local setup = {
@@ -358,14 +359,14 @@ local setup = {
 
 
 local setup_opts = function (mode, prefix, buffer, isSilent, isNoremap, isNowait)
-	return {
-	  mode = mode, -- NORMAL mode
-	  prefix = prefix,
-	  buffer = buffer, -- Global mappings. Specify a buffer number for buffer local mappings
-	  silent = isSilent, -- use `silent` when creating keymaps
-	  noremap = isNoremap, -- use `noremap` when creating keymaps
-	  nowait = isNowait, -- use `nowait` when creating keymaps
-	}
+  return {
+    mode = mode, -- NORMAL mode
+    prefix = prefix,
+    buffer = buffer, -- Global mappings. Specify a buffer number for buffer local mappings
+    silent = isSilent, -- use `silent` when creating keymaps
+    noremap = isNoremap, -- use `noremap` when creating keymaps
+    nowait = isNowait, -- use `nowait` when creating keymaps
+  }
 end
 
 local ft_mappings = require'system-build.mode-action'.mappings

@@ -1,6 +1,5 @@
 return {
   setup = function ()
-    require'config.enhance-vision.neoscroll'
     require'config.enhance-vision.indent'
     require'config.enhance-vision.treesitter'
     require'config.enhance-vision.renamer'

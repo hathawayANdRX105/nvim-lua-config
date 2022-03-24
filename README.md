@@ -1,3 +1,5 @@
+* title
+
 - [√] comment fix
 - [ ] add up text object with text-object treesiter
 - [√] set up lazy-load package function
@@ -17,7 +19,7 @@ todo plugin integration
 - [√] shade.nvim
 - [√] window-picker
 - [×] vista.vim
-- [ ] filetype.nvim
+- [ ] filetype.nvim'
 - [ ] tabular
 
 theme
@@ -27,5 +29,6 @@ theme
 
 theme generator
 - [ ] themer.lua
+
 
 

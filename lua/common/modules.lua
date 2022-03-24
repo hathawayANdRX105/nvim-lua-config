@@ -19,10 +19,8 @@ M.auto_modules = {
   'config.toggleterm',
 
   'config.git',
-  -- 'system-debug',
+  'system-debug',
 }
 
-M.lazy_modules = {
-}
 
 return M
