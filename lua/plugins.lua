@@ -1,5 +1,6 @@
 -- import Method:Check_status
 require("util.load_fn")
+
 -- Have packer use a popup window
 local packer = Check_status("packer")
 packer.init {
@@ -35,7 +36,7 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   --use 'EdenEast/nightfox.nvim'
-  use { 'bluz67/vim-nightfly-guicolors', as = 'nightfly' }
+  use { 'bluz71/vim-nightfly-guicolors', as = 'nightfly' }
   use { 'folke/tokyonight.nvim',         as = 'tokyonight' }
   use { 'rose-pine/neovim',              as = 'rose-pine', tag = 'v1.*', }
   use { 'rebelot/kanagawa.nvim',         as = 'kanagawa' }

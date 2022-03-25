@@ -92,8 +92,7 @@ local async = require("plenary.async")
 local notify = require("notify").async
 
 local function RandomChooseTheme()
-  local themes = { 'kanagawa',  'material', 'catppuccin', 'tokyonight', }
-  --'nightfly',
+  local themes = { 'kanagawa',  'material', 'nightfly', 'catppuccin', 'tokyonight', }
   local theme = GetRandomPick(themes)
 
 
