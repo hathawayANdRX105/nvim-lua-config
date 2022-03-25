@@ -196,21 +196,26 @@ local leader_maps = {
 local localleader_mappings = {
   name = "+LocalLeader",
 
-  r = { "<cmd>lua Run()<CR>",	"task-run"},
-  t = { "<cmd>lua TestProject()<CR>",	"task-test"},
-  b = { "<cmd>lua AsyncRunByOpts('build')<CR>",	"task-build"},
+  r = { "<cmd>Telescop search_history<CR>", "file-history" },
+  b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
+
+  p = { "clipboard-paste" },
+  y = { "clipboard-paste" },
+  d = { "clipboard-delete" },
 
   a = { "<cmd>CodeActionMenu<CR>", "code-action" },
   q = { "<cmd>lua require'util.toggle'.QfToggle()<CR>", "quickfix-list" },
-  d = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
+  D = { "<cmd>lua require('dapui').toggle()<CR>", "debug" },
+
   i = {
     name = "+iswap",
     i = { "<cmd>ISwapWith<CR>",	"swap-with-current" },
     s = { "<cmd>ISwap<CR>",		"swap-select" },
   },
 
-  s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "lines" },
-  f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "open-file" },
+  s = { "<cmd>Telescop current_buffer_fuzzy_find<CR>", "quick-fuzzy" },
+  f = { "<cmd>lua require'telescope.builtin'.find_files(require('telescope.themes').get_dropdown{previewer = false})<CR>", "quick-file" },
+  m = { '<cmd>Telescope marks', "quick-mark" },
 
   ['='] = { "mqGVgg=`q", "indent-file" },
 }
@@ -267,6 +272,26 @@ local g_vmode_mappings = {
   [';'] = { "comment-block" },
   ['/'] = { "comment-line" },
 }
+local w_mappings = {
+  name = "+Quick-window",
+  h = { "<C-W>h", "to-left" },
+  j = { "<C-W>j", "to-down" },
+  k = { "<C-W>k", "to-up"   },
+  l = { "<C-W>l", "to-right"},
+
+  H = { "<C-W>H", "move-left" },
+  J = { "<C-W>J", "move-down" },
+  K = { "<C-W>K", "move-up"   },
+  L = { "<C-W>L", "move-right"},
+
+  s = { "<cmd>lua require'focus'.split_command('j')<CR>", "split"},
+  v = { "<cmd>lua require'focus'.split_command('l')<CR>", "vertical"},
+
+  p = { "<cmd>WindowPick<CR>", "window-pick"},
+  z = { "<cmd>WindowZap<CR>", "window-zap"},
+  w = { "<cmd>WindowSwap<CR>", "window-swap"},
+  c = { "<C-w>c", "close"},
+}
 
 local b_mappings = {
   name = '+Quick-buf',
@@ -277,21 +302,22 @@ local b_mappings = {
   o = { "<cmd>BufferPin<CR>", "buf-pin"},
   O = { "<cmd>BufferCloseAllButPinned<CR>", "buf-close-except-pinned" },
 
-  h = { "<cmd>BufferCloseLeft<CR>", "buf-close-left" },
-  l = { "<cmd>BufferCloseRight<CR>", "buf-close-right" },
+  h = { "<cmd>BufferCloseBuffersLeft<CR>", "buf-close-left" },
+  l = { "<cmd>BufferCloseBuffersRight<CR>", "buf-close-right" },
 
   w = { "<cmd>BufferWipeout<CR>", "buf-wipe" },
   k = { "<cmd>BufferClose<CR>", "buf-close",},
-  K = { "<cmd>BufferCloseButCurrent<CR>", "buf-close-but-current" },
+  K = { "<cmd>BufferCloseAllButCurrent<CR>", "buf-close-but-current" },
 
-  n = { "<cmd>BufferPrevious<CR>", "buf-prev" },
-  p = { "<cmd>BufferNext<CR>", "buf-next" },
+  p = { "<cmd>BufferPick<CR>", "buf-pick" },
 
 }
 
 local left_bracket_mappings = {
   name = "+Prev-Nav",
   c = { "&diff ? ']c' : '<cmd>Gitsigns prev_hunk<CR>'" ,		"prev-hunk" },
+  b = { "<cmd>BufferPrevious<CR>", "buf-prev" },
+  w = { "<C-w>p", "window-prev" },
   t = { '<cmd>lua require("trouble").previous({skip_groups = true, jump = true})<CR>' ,		"prev-trouble" },
   d = {
     [[ <cmd>lua vim.lsp.diagnostic.goto_prev({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
@@ -304,6 +330,8 @@ local right_bracket_mappings = {
   name = "+Next-Nav",
   c = { "&diff ? ']c' : '<cmd>Gitsigns next_hunk<CR>'" ,		"next-hunk" },
   t = { '<cmd>lua require("trouble").next({skip_groups = true, jump = true})<CR>' ,		"next-trouble" },
+  w = { "<C-w>w", "window-next" },
+  b = { "<cmd>BufferNext<CR>", "buf-next" },
   d = {
     [[ <cmd>lua vim.lsp.diagnostic.goto_next({severity_limit = "Warning", popup_opts = {border = "single"}})<CR> ]],
     'prev-diagnostic'
@@ -398,6 +426,7 @@ local leader_opts = setup_opts("n", "<leader>", nil, true, true, true)
 local g_opts = setup_opts("n", "g", nil, true, true, true)
 local g_vmode_opts = setup_opts("v", "g", nil, true, true, true)
 
+local w_opts = setup_opts("n", "w", nil, true, true, true)
 local b_opts = setup_opts("n", "b", nil, true, true, true)
 
 local left_bracket_opts = setup_opts("n", "[", nil, true, true, true)
@@ -413,6 +442,9 @@ which_key.register(localleader_mappings, localleader_opts)
 which_key.register(ft_mappings, ft_opts)
 which_key.register(g_mappings, g_opts)
 which_key.register(g_vmode_mappings, g_vmode_opts)
+
+which_key.register(w_mappings, w_opts)
 which_key.register(b_mappings, b_opts)
+
 which_key.register(left_bracket_mappings, left_bracket_opts)
 which_key.register(right_bracket_mappings, right_bracket_opts)

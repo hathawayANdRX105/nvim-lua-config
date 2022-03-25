@@ -45,7 +45,11 @@ cmp.setup{
     ["<C-f>"] = cmp.mapping(cmp.mapping.scroll_docs(1), { "i", "c" }),
     ["<C-Space>"] = cmp.mapping(cmp.mapping.complete(), { "i", "c" }),
     -- ["<C-y>"] = cmp.config.disable, -- Specify `cmp.config.disable` if you want to remove the default `<C-y>` mapping.
-    ["<C-e>"] = cmp.mapping {
+    ["<C-e"] = cmp.mapping {
+      i = cmp.mapping.abort(),
+      c = cmp.mapping.close(),
+    },
+    ["<M-Space>"] = cmp.mapping {
       i = cmp.mapping.abort(),
       c = cmp.mapping.close(),
     },
@@ -97,13 +101,6 @@ cmp.setup{
         path = "path",
         cmp_tabnine = "tabnine",
 
-        -- emoji = "[Emoji]",
-        -- nvim_lsp = "",
-        -- nvim_lua = "",
-        -- luasnip = "",
-        -- buffer = "",
-        -- path = "",
-        -- emoji = "",
       })[entry.source.name]
       return vim_item
     end,

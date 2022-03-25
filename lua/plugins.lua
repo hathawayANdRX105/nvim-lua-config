@@ -35,11 +35,12 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   --use 'EdenEast/nightfox.nvim'
-  -- use 'bluz71/vim-nightfly-guicolors'
-  use 'folke/tokyonight.nvim'
-  -- use({ 'rose-pine/neovim', as = 'rose-pine', tag = 'v1.*', })
-  -- use "rebelot/kanagawa.nvim"
-  use({ "catppuccin/nvim", as = "catppuccin" })
+  use { 'bluz71/vim-nightfly-guicolors', opt = true, as = 'nightfly' }
+  use { 'folke/tokyonight.nvim',         opt = true, as = 'tokyonight' }
+  use { 'rose-pine/neovim',              opt = true, as = 'rose-pine', tag = 'v1.*', }
+  use { 'rebelot/kanagawa.nvim',         opt = true, as = 'kanagawa' }
+  use { 'catppuccin/nvim',               opt = true, as = 'catppuccin' }
+  use { 'marko-cerovac/material.nvim',   opt = true, as = "material" }
   -- use 'shaunsingh/moonlight.nvim'
   --use 'yashguptaz/calvera-dark.nvim'
 
@@ -53,6 +54,8 @@ return require('packer').startup(function(use)
   use "nvim-telescope/telescope-file-browser.nvim" -- telescope browser
   use 'ten3roberts/window-picker.nvim'             -- window-picker
   use 'rmagatti/goto-preview'                      -- look up definitions & implements
+  use 'chentau/marks.nvim'                         -- bookmark
+  use "folke/todo-comments.nvim"                   -- todo comments
 
   -- text opertion
   use { 'phaazon/hop.nvim', branch = 'v1'}          -- motion
@@ -66,6 +69,7 @@ return require('packer').startup(function(use)
   use 'godlygeek/tabular'                           -- tab format
   use 'nvim-treesitter/nvim-treesitter-textobjects' -- select text objects
   use 'RRethy/nvim-treesitter-textsubjects'
+  use 'mg979/vim-visual-multi'
 
   -- project manage
   use "ahmedkhalf/project.nvim"       -- project switch
@@ -138,22 +142,11 @@ return require('packer').startup(function(use)
 
 
   -- note
-  use {
-    "nvim-neorg/neorg",
-    ft='norg',
-    after='nvim-treesitter' ,
-    config = function()
-      require'config.neorg'
-    end
-  }
-  use{ 'iamcco/markdown-preview.nvim', cmd="LoadMarkdownPreview", lock=true, run="cd app && yarn install" }
+  use { "nvim-neorg/neorg", ft='norg', after='nvim-treesitter' , config = function() require'config.neorg' end }
+  use { 'iamcco/markdown-preview.nvim', cmd="LoadMarkdownPreview", lock = true, run="cd app && yarn install" }
 
   -- language envirment
-  use { 'ray-x/go.nvim',
-    ft='go' ,
-    config = function()
-      require'config.go_env'.setup()
-    end }
+  use { 'ray-x/go.nvim', ft='go' , config = function() require'config.go_env'.setup() end }
 
   -- fix
   use 'antoinemadec/FixCursorHold.nvim'
@@ -166,7 +159,7 @@ return require('packer').startup(function(use)
   }
 
   -- enhance-ide
-  use{  'max397574/better-escape.nvim', config = function() require("better_escape").setup() end }
+  use {  'max397574/better-escape.nvim', config = function() require("better_escape").setup() end }
   use {
     'lewis6991/spellsitter.nvim',
     config = function() require('spellsitter').setup{enable = true} end

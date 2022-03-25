@@ -11,19 +11,17 @@ telescope.setup{
       i = {
         ["<M-p"]  = action_layout.toggle_preview,
 
-        ["<A-j>"] = actions.move_selection_next,
-        ["<A-k>"] = actions.move_selection_previous,
+        ["<M-j>"] = actions.move_selection_next,
+        ["<M-k>"] = actions.move_selection_previous,
 
-        ["<C-j>"] = actions.move_selection_next,
-        ["<C-n>"] = actions.move_selection_next,
         ["<C-k>"] = actions.move_selection_previous,
         ["<C-p>"] = actions.move_selection_previous,
 
-        ["<A-c>"] = actions.close,
         ["<C-c>"] = actions.close,
         ["<C-j>"] = actions.move_selection_next,
         ["<C-n>"] = actions.move_selection_next,
         ["<Esc>"] = actions.close,
+        ["<M-Space>"] = actions.close,
 
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
@@ -82,17 +80,17 @@ telescope.setup{
     -- Now the picker_config_key will be applied every time you call this
     -- builtin picker
   },
-extensions = {
-	file_browser = {
-	      -- theme = "ivy",
-	      mappings = { ["i"] = { }, ["n"] = { }, },
-	},
-	},
-	["ui-select"] = {
+  extensions = {
+    file_browser = {
+      -- theme = "ivy",
+      mappings = { ["i"] = { }, ["n"] = { }, },
+    },
+  },
+  ["ui-select"] = {
     require("telescope.themes").get_dropdown {
       preview = false,
-		}
-	},
+    }
+  },
 
 }
 

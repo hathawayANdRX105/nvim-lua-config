@@ -12,12 +12,9 @@ local default_config = {
 }
 
 local default_settings = {
-	-- neogit notification info
 	"hi NeogitNotificationInfo guifg=#80ff95",
 	"hi NeogitNotificationWarning guifg=#fff454",
-	"hi NeogitNotificationError guifg=#c44323",
 
-	-- contextual highlighting
 	"hi def NeogitDiffAddHighlight guibg=#404040 guifg=#859900",
 	"hi def NeogitDiffDeleteHighlight guibg=#404040 guifg=#dc322f",
 	"hi def NeogitDiffContextHighlight guibg=#333333 guifg=#b2b2b2",
@@ -31,7 +28,6 @@ local default_settings = {
 	"filetype indent on",
 	"set autoindent",
 	"set expandtab",
-
 	"syntax on",
 	"set showmatch",
 
@@ -44,10 +40,7 @@ local default_settings = {
 
 
 	"set nobackup",
-	"set noswapfile",
 	"set undofile",
-
-
 }
 -- vim.cmd[[au BufWritePost <buffer> lua require('lint').try_lint()]]
 -- load set-option config

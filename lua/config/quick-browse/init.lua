@@ -6,5 +6,7 @@ return {
     require'config.quick-browse.project'
     require'config.quick-browse.window-picker'
     require'config.quick-browse.goto-preview'
+    require'config.quick-browse.marks'
+    require'config.quick-browse.todo-comments'
   end
 }

@@ -59,13 +59,21 @@ end
 -- backup scheme: kanagawa / tokyonight / catppuccin
 -- vim.cmd[[colorscheme nightfly]]
 
+
 local function Setup_colorscheme(scheme_name)
 	local scheme_config = require'common.scheme_config'
 	local scheme_global_config = scheme_config[scheme_name].global_config
 	local scheme_setup = scheme_config[scheme_name].setup
 
-	Load_global_set(scheme_global_config)
-	scheme_setup()
+  -- perhaps i miss setup scheme config & setup func
+  if scheme_config ~= nil then
+    Load_global_set(scheme_global_config)
+  end
+
+  if scheme_setup ~= nil then
+    scheme_setup()
+  end
+
 	vim.cmd("colorscheme "..scheme_name)
 end
 

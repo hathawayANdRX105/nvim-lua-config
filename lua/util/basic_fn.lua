@@ -17,4 +17,8 @@ function TableSize(table)
 end
 
 
+-- function GotoLastBuffer()
+--   -- 
+--   
+-- end
 

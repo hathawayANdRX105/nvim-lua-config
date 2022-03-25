@@ -1,7 +1,7 @@
 * title
 
 - [√] comment fix
-- [ ] add up text object with text-object treesiter
+- [√] add up text object with text-object treesiter
 - [√] set up lazy-load package function
 - [x] integrate jupyter notebook edited by neovim (nvim do no write jupyter)
 
@@ -12,7 +12,7 @@
 todo plugin integration
 - [×] lspaga.nvim
 - [×] navigator.lua
-- [ ] cmp-spell
+- [×] cmp-spell
 - [√] Goto Preview
 - [√] spellsitter.nvim
 - [√] nvim.gps
@@ -20,7 +20,12 @@ todo plugin integration
 - [√] window-picker
 - [×] vista.vim
 - [ ] filetype.nvim'
-- [ ] tabular
+- [√] tabular
+
+more-like ide plugins
+- [√] vim-visual-multi
+- [√] chentau/marks.nvim
+- [ ] folke/todo-comments.nvim
 
 theme
 - [x] blue-moon
