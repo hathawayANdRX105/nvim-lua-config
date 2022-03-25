@@ -1,10 +1,10 @@
 local M = {}
 
 M.auto_modules = {
-	'common.ui',
 	'common.default',
 	'common.keymappings',
 	'config.which-key',
+  'common.ui',
 
 	'lsp',
   'config.ui',

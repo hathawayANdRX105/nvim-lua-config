@@ -1,3 +1,5 @@
+local GetRandomPick = require('common.ui').GetRandomPick
+
 return {
   tokyonight = {
     global_config = {
@@ -7,7 +9,10 @@ return {
       tokyonight_sidebars = { "qf", "vista_kind", "terminal", "packer" },
       tokyonight_colors = { hint = "orange", error = "#ff0000" },
     },
-    setup = function() end
+    setup = function()
+      local styles = { 'storm', 'night', 'day'}
+      vim.g.tokyonight_style = GetRandomPick(styles)
+    end
 
   },
 
@@ -161,11 +166,9 @@ return {
     },
     setup = function()
       local styles = { "darker", "lighter", "ocenanic", "palenight", "deep ocean", }
-      local index = math.random(1, #styles)
-
-      local style = styles[index]
-
+      local style = GetRandomPick(styles)
       vim.g.material_style = style
+
       require('lualine').setup { options = { theme = 'material' } }
 
       require('material').setup({
@@ -175,7 +178,7 @@ return {
           floating_windows = true, -- Enable contrast for floating windows
           line_numbers = true, -- Enable contrast background for line numbers
           sign_column = true, -- Enable contrast background for the sign column
-          cursor_line = false, -- Enable darker background for the cursor line
+          cursor_line = true, -- Enable darker background for the cursor line
           non_current_windows = false, -- Enable darker background for non-current windows
           popup_menu = true, -- Enable lighter background for the popup menu
         },

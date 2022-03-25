@@ -35,12 +35,12 @@ return require('packer').startup(function(use)
 
   -- colorscheme
   --use 'EdenEast/nightfox.nvim'
-  use { 'bluz71/vim-nightfly-guicolors', opt = true, as = 'nightfly' }
-  use { 'folke/tokyonight.nvim',         opt = true, as = 'tokyonight' }
-  use { 'rose-pine/neovim',              opt = true, as = 'rose-pine', tag = 'v1.*', }
-  use { 'rebelot/kanagawa.nvim',         opt = true, as = 'kanagawa' }
-  use { 'catppuccin/nvim',               opt = true, as = 'catppuccin' }
-  use { 'marko-cerovac/material.nvim',   opt = true, as = "material" }
+  use { 'bluz67/vim-nightfly-guicolors', as = 'nightfly' }
+  use { 'folke/tokyonight.nvim',         as = 'tokyonight' }
+  use { 'rose-pine/neovim',              as = 'rose-pine', tag = 'v1.*', }
+  use { 'rebelot/kanagawa.nvim',         as = 'kanagawa' }
+  use { 'catppuccin/nvim',               as = 'catppuccin' }
+  use { 'marko-cerovac/material.nvim',   as = "material" }
   -- use 'shaunsingh/moonlight.nvim'
   --use 'yashguptaz/calvera-dark.nvim'
 
@@ -122,6 +122,7 @@ return require('packer').startup(function(use)
   use 'kevinhwang91/nvim-bqf'                                  -- better quick-fix
   use 'romgrk/barbar.nvim'                                     -- buffer tab
   use "beauwilliams/focus.nvim"                                -- window focus
+  use 'rcarriga/nvim-notify'                                   -- async notify
   -- use 'karb94/neoscroll.nvim'
   -- use { 'sunjon/shade.nvim',
   --   config = function ()

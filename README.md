@@ -25,7 +25,7 @@ todo plugin integration
 more-like ide plugins
 - [√] vim-visual-multi
 - [√] chentau/marks.nvim
-- [ ] folke/todo-comments.nvim
+- [√] folke/todo-comments.nvim
 
 theme
 - [x] blue-moon
@@ -34,6 +34,8 @@ theme
 
 theme generator
 - [ ] themer.lua
+
+auto theme change
 
 
 
