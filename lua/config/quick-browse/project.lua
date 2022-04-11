@@ -38,7 +38,10 @@ project.setup({
 
   -- Don't calculate root dir on specific directories
   -- Ex: { "~/.cargo/*", ... }
-  exclude_dirs = {},
+  exclude_dirs = {
+    "c:/Users/Administrator/project/*",
+    "c:/Users/Administrator/.AppData/*",
+  },
 
   -- Show hidden files in telescope
   show_hidden = false,

@@ -9,7 +9,7 @@
 - [√] code test for go
 
 
-todo plugin integration
+## todo plugin integration
 - [×] lspaga.nvim
 - [×] navigator.lua
 - [×] cmp-spell
@@ -22,20 +22,23 @@ todo plugin integration
 - [ ] filetype.nvim'
 - [√] tabular
 
-more-like ide plugins
+## more-like ide plugins
 - [√] vim-visual-multi
 - [√] chentau/marks.nvim
 - [√] folke/todo-comments.nvim
 
-theme
+## theme
 - [x] blue-moon
 - [ ] gruvbox-baby [pretty telescope design]
 - [ ] zenbones.nvim
 
-theme generator
+## theme generator
 - [ ] themer.lua
 
-auto theme change
+## auto theme change
+
+
+
 
 
 

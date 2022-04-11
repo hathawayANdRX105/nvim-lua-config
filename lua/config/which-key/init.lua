@@ -8,7 +8,7 @@ local leader_maps = {
   ["3"] = { "<cmd>ToggleTerm<CR>", "terminal" },
   ['4'] = { "<cmd>Telescop projects<CR>", "switch-projects" },
   ['0'] = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
-  ['<CR>'] = { "<cmd>source<CR>", "source" },
+  ['<cr>'] = { "<cmd>source<CR>", "source" },
 
   d = {
     name = "+Debug",
@@ -25,43 +25,43 @@ local leader_maps = {
     p = { "<cmd>LuaCacheProfile<CR>",	"cache-profile"},
   },
 
-  w = {
-    name = "+Window",
-    h = { "<C-W>h", "to-left" },
-    j = { "<C-W>j", "to-down" },
-    k = { "<C-W>k", "to-up"   },
-    l = { "<C-W>l", "to-right"},
+  -- w = {
+  --   name = "+Window",
+  --   h = { "<C-W>h", "to-left" },
+  --   j = { "<C-W>j", "to-down" },
+  --   k = { "<C-W>k", "to-up"   },
+  --   l = { "<C-W>l", "to-right"},
+  --
+  --   H = { "<C-W>H", "move-left" },
+  --   J = { "<C-W>J", "move-down" },
+  --   K = { "<C-W>K", "move-up"   },
+  --   L = { "<C-W>L", "move-right"},
+  --
+  --   s = { "<cmd>lua require'focus'.split_command('j')<CR>", "split"},
+  --   v = { "<cmd>lua require'focus'.split_command('l')<CR>", "vertical"},
+  --
+  --   -- n = { "<C-w>w", "win-next"},
+  --   p = { "<cmd>WindowPick<CR>", "window-pick"},
+  --   z = { "<cmd>WindowZap<CR>", "window-zap"},
+  --   w = { "<cmd>WindowSwap<CR>", "window-swap"},
+  --   c = { "<C-w>c", "close"},
+  -- },
 
-    H = { "<C-W>H", "move-left" },
-    J = { "<C-W>J", "move-down" },
-    K = { "<C-W>K", "move-up"   },
-    L = { "<C-W>L", "move-right"},
-
-    s = { "<cmd>lua require'focus'.split_command('j')<CR>", "split"},
-    v = { "<cmd>lua require'focus'.split_command('l')<CR>", "vertical"},
-
-    -- n = { "<C-w>w", "win-next"},
-    p = { "<cmd>WindowPick<CR>", "window-pick"},
-    z = { "<cmd>WindowZap<CR>", "window-zap"},
-    w = { "<cmd>WindowSwap<CR>", "window-swap"},
-    c = { "<C-w>c", "close"},
-  },
-
-  b = {
-    name = "+Buffer",
-    k = { "<cmd>BufferClose<CR>"    , "kill" },
-    d = { "<cmd>BufferDelete<CR>"   , "delete" },
-    n = { "<cmd>BufferNext<CR>"     , "buf-next" },
-    l = { "<cmd>BufferLast<CR>"     , "buf-last" },
-    p = { "<cmd>BufferPrevious<CR>" , "buf-prev" },
-    b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
-    o = {
-      name = "+Buffer-Order",
-      n = { "<cmd>BufferOrderByBufferNumber<CR>" , 'order-by-number'},
-      d = { "<cmd>BufferOrderByDirectory<CR>"    , 'order-by-directory'},
-      l = { "<cmd>BufferOrderByLanguage<CR>"     , 'order-by-language'},
-    }
-  },
+  -- b = {
+  --   name = "+Buffer",
+  --   k = { "<cmd>BufferClose<CR>"    , "kill" },
+  --   d = { "<cmd>BufferDelete<CR>"   , "delete" },
+  --   n = { "<cmd>BufferNext<CR>"     , "buf-next" },
+  --   l = { "<cmd>BufferLast<CR>"     , "buf-last" },
+  --   p = { "<cmd>BufferPrevious<CR>" , "buf-prev" },
+  --   b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
+  --   o = {
+  --     name = "+Buffer-Order",
+  --     n = { "<cmd>BufferOrderByBufferNumber<CR>" , 'order-by-number'},
+  --     d = { "<cmd>BufferOrderByDirectory<CR>"    , 'order-by-directory'},
+  --     l = { "<cmd>BufferOrderByLanguage<CR>"     , 'order-by-language'},
+  --   }
+  -- },
 
   f = {
     name = "+File",
@@ -196,7 +196,7 @@ local leader_maps = {
 local localleader_mappings = {
   name = "+LocalLeader",
 
-  r = { "<cmd>Telescop search_history<CR>", "file-history" },
+  r = { "<cmd>Telescop oldfiles<CR>", "file-history" },
   b = { [[<cmd>lua require"telescope.builtin".buffers(require('telescope.themes').get_dropdown{previewer = false})<CR>]], "switch" },
 
   p = { "clipboard-paste" },
@@ -239,8 +239,8 @@ local g_mappings = {
   },
 
   -- window swap / window zap
-  p = { "<cmd>WindowPick<CR>",	"window-pick" },
-  b = { "<cmd>BufferPick<CR>",  "buffer-pick" },
+  -- p = { "<cmd>WindowPick<CR>",	"window-pick" },
+  -- b = { "<cmd>BufferPick<CR>",  "buffer-pick" },
 
   d = { "<cmd>Trouble lsp_definitions<CR>", "trouble-definition" },
   r = { "<cmd>Trouble lsp_references<CR>", "trouble-reference" },
@@ -294,7 +294,7 @@ local w_mappings = {
 }
 
 local b_mappings = {
-  name = '+Quick-buf',
+  name = '+Quick-buffer',
   d = { "<cmd>lua require('goto-preview').goto_preview_definition()<CR>", "goto-preview-definition",},
   i = { "<cmd>lua require('goto-preview').goto_preview_implementation()<CR>", "goto-preview-implementation",},
   r = { "<cmd>lua require('goto-preview').goto_preview_references()<CR>", "goto-preview-reference",},
@@ -310,6 +310,7 @@ local b_mappings = {
   K = { "<cmd>BufferCloseAllButCurrent<CR>", "buf-close-but-current" },
 
   p = { "<cmd>BufferPick<CR>", "buf-pick" },
+  b = { "<cmd>Telescope buffers<CR>", 'buf-switc' }
 
 }
 

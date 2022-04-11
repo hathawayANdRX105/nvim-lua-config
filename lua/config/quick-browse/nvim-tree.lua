@@ -50,7 +50,7 @@ nvim_tree.setup {
   update_focused_file = {
     enable      = false,
     update_cwd  = false,
-    ignore_list = {}
+    ignore_list = { ".git", }
   },
   system_open = {
     cmd  = nil,

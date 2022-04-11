@@ -1,5 +1,6 @@
+local M = {}
 
-local ui_global_config = {
+M.ui_global_config = {
   asyncrun_open = 10,
   -- fix up for cursorhold
   cursorhold_updatetime = 100,
@@ -8,7 +9,7 @@ local ui_global_config = {
   registers_return_symbol = "↵",
 }
 
-local ui_opt_config = {
+M.ui_opt_config = {
   -- guifont = 'Lekton Nerd Font Mono:h20',
   -- guifont = 'mononoki Nerd Font Mono:h18',
   guifont = 'JetBrainsMono Nerd Font Mono:h18',
@@ -17,7 +18,7 @@ local ui_opt_config = {
 
 
 
-local cmds = {
+M.cmds = {
   -- renamer
   -- [[hi default link RenamerNormal Normal]],
   -- [[hi default link RenamerBorder RenamerNormal]],
@@ -43,7 +44,7 @@ local cmds = {
 }
 
 -- setup diagnostics symbol for lsp
-function SetupDiagnosticsSymbol()
+M.SetupDiagnosticsSymbol = function()
   local icons = require("config.icons")
   local signs = {
   { hl = "DiagnosticSignError", text = icons.diagnostics.Error },
@@ -59,7 +60,7 @@ end
 
 -- backup scheme: kanagawa / tokyonight / catppuccin
 -- vim.cmd[[colorscheme nightfly]]
-local function GetRandomPick(pickLists)
+M.GetRandomPick = function(pickLists)
   if pickLists ~= nil and #pickLists > 0 then
     math.randomseed(tostring(os.time()):reverse():sub(1, 7))
 
@@ -69,7 +70,7 @@ local function GetRandomPick(pickLists)
 end
 
 
-local function SetupColorscheme(scheme_name)
+M.SetupColorscheme = function(scheme_name)
   --vim.cmd("PackerLoad "..scheme_name)
 
   local scheme_config = require'common.scheme_config'
@@ -91,26 +92,27 @@ end
 local async = require("plenary.async")
 local notify = require("notify").async
 
-local function RandomChooseTheme()
-  local themes = { 'kanagawa',  'material', 'nightfly', 'catppuccin', 'tokyonight', }
-  local theme = GetRandomPick(themes)
+M.themes = { 'kanagawa',  'material', 'nightfly', 'catppuccin', 'tokyonight', }
+
+M.RandomChooseTheme = function()
+  local theme = M.GetRandomPick(M.themes)
 
 
   async.run(function()
     notify("theme :"..theme).events.close()
   end)
-  SetupColorscheme(theme)
+  M.SetupColorscheme(theme)
 end
 
-return {
-  setup = function()
-    Load_global_set(ui_global_config)
-    Load_set(ui_opt_config)
-    Load_cmd(cmds)
-    SetupDiagnosticsSymbol()
+M.setup = function()
+  Load_global_set(M.ui_global_config)
+  Load_set(M.ui_opt_config)
+  Load_cmd(M.cmds)
+  M.SetupDiagnosticsSymbol()
 
-    RandomChooseTheme()
-  end,
-  GetRandomPick = GetRandomPick,
-  RandomChooseTheme = RandomChooseTheme,
-}
+  local theme = "tokyonight"
+  M.SetupColorscheme(theme)
+  -- RandomChooseTheme()
+end
+
+return M

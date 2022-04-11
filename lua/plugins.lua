@@ -73,7 +73,7 @@ return require('packer').startup(function(use)
   use 'mg979/vim-visual-multi'
 
   -- project manage
-  use "ahmedkhalf/project.nvim"       -- project switch
+  use 'ahmedkhalf/project.nvim'       -- project switch
   use 'skywind3000/asyncrun.vim'      -- code run
   use 'Shatur/neovim-session-manager' -- session
   -- use { 'michaelb/sniprun', run = 'bash ./install.sh'}	-- snip run for py
@@ -100,7 +100,7 @@ return require('packer').startup(function(use)
   use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
   -- terminal integration
-  use "akinsho/toggleterm.nvim"
+  -- use "akinsho/toggleterm.nvim"
 
 
   -- snippets
@@ -137,15 +137,21 @@ return require('packer').startup(function(use)
   use 'sindrets/diffview.nvim'  -- diffview
 
   -- debug
-  use 'mfussenegger/nvim-dap'   -- nvim dap integration
-  use 'rcarriga/nvim-dap-ui'
+  -- use 'mfussenegger/nvim-dap'   -- nvim dap integration
+  -- use 'rcarriga/nvim-dap-ui'
   -- use{ 'leoluz/nvim-dap-go', ft='go'}
 
 
 
   -- note
   use { "nvim-neorg/neorg", ft='norg', after='nvim-treesitter' , config = function() require'config.neorg' end }
-  use { 'iamcco/markdown-preview.nvim', cmd="LoadMarkdownPreview", lock = true, run="cd app && yarn install" }
+
+
+  -- markdown
+  use { 'iamcco/markdown-preview.nvim', as = 'markdown_preview', ft = 'markdown', lock = true, run="yarn install" }
+  use { 'preservim/vim-markdown', config = function() require'config.markdown' end }
+  use { 'vim-pandoc/vim-pandoc-syntax', ft='markdown'}
+
 
   -- language envirment
   use { 'ray-x/go.nvim', ft='go' , config = function() require'config.go_env'.setup() end }

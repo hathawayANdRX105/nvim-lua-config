@@ -1,4 +1,4 @@
-local GetRandomPick = require('common.ui').GetRandomPick
+-- local GetRandomPick = require('common.ui').GetRandomPick
 
 return {
   tokyonight = {
@@ -10,8 +10,9 @@ return {
       tokyonight_colors = { hint = "orange", error = "#ff0000" },
     },
     setup = function()
-      local styles = { 'storm', 'night', 'day'}
-      vim.g.tokyonight_style = GetRandomPick(styles)
+      -- local styles = { 'storm', 'night', 'day'}
+      -- vim.g.tokyonight_style = GetRandomPick(styles)
+      vim.g.tokyonight_style = 'night'
     end
 
   },
@@ -165,9 +166,9 @@ return {
 
     },
     setup = function()
-      local styles = { "darker", "lighter", "ocenanic", "palenight", "deep ocean", }
-      local style = GetRandomPick(styles)
-      vim.g.material_style = style
+      -- local styles = { "darker", "lighter", "ocenanic", "palenight", "deep ocean", }
+      -- local style = GetRandomPick(styles)
+      vim.g.material_style = "darker"
 
       require('lualine').setup { options = { theme = 'material' } }
 

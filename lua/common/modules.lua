@@ -16,7 +16,7 @@ M.auto_modules = {
 
   'config.session',
 	'config.nvim-cmp',
-  'config.toggleterm',
+  -- 'config.toggleterm',
 
   'config.git',
   'system-debug',

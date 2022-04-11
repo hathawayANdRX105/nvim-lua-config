@@ -31,28 +31,28 @@ local keymap_list = {
 
     -- insert motion oper
   { mode='i', key = 'jj', map = '<esc>', opt=opt },
-    -- { mode='i', key = '<C-a>', map = '<Esc>^i', opt=opt },
-    -- { mode='i', key = '<C-e>', map = '<Esc>$a', opt=opt },
-    -- { mode='i', key = '<C-p>', map = '<Up>', opt=opt },
-    -- { mode='i', key = '<C-n>', map = '<Down>', opt=opt },
-    -- { mode='i', key = '<C-b>', map = '<Left>', opt=opt },
-    -- { mode='i', key = '<C-f>', map = '<Right>', opt=opt },
-    -- { mode='i', key = '<C-u>', map = "<Esc>u`'", opt=opt },
+    { mode='i' , key = '<C-a>' , map = '<Esc>^i'  , opt=opt } ,
+    { mode='i' , key = '<C-e>' , map = '<Esc>$a'  , opt=opt } ,
+    { mode='i' , key = '<C-p>' , map = '<Up>'     , opt=opt } ,
+    { mode='i' , key = '<C-n>' , map = '<Down>'   , opt=opt } ,
+    { mode='i' , key = '<C-b>' , map = '<Left>'   , opt=opt } ,
+    { mode='i' , key = '<C-f>' , map = '<Right>'  , opt=opt } ,
+    { mode='i' , key = '<C-u>' , map = "<Esc>u`'" , opt=opt } ,
 
     -- insert motion using Meta key
-  { mode = 'i' , key = '<M-a>'  , map = '<Esc>^i'     , opt = opt } ,
-  { mode = 'i' , key = '<M-e>'  , map = '<End>'       , opt = opt } ,
-
-  { mode = 'i' , key = '<M-h>'  , map = '<Left>'      , opt = opt } ,
-  { mode = 'i' , key = '<M-l>'  , map = '<Right>'     , opt = opt } ,
-  { mode = 'i' , key = '<M-p>'  , map = '<Up>'        , opt = opt } ,
-  { mode = 'i' , key = '<M-n>'  , map = '<Down>'      , opt = opt } ,
-
-  { mode = 'i' , key = '<M-f>'  , map = '<S-Right>'   , opt = opt } ,
-  { mode = 'i' , key = '<M-b>'  , map = '<S-Left>'    , opt = opt } ,
-
-  { mode = 'i' , key = '<M-u>'  , map = "<Esc>u`'"    , opt = opt } ,
-  { mode = 'i' , key = '<M-CR>' , map = '<Esc>$a<CR>' , opt = opt } ,
+  -- { mode = 'i' , key = '<M-a>'  , map = '<Esc>^i'     , opt = opt } ,
+  -- { mode = 'i' , key = '<M-e>'  , map = '<End>'       , opt = opt } ,
+  --
+  -- { mode = 'i' , key = '<M-h>'  , map = '<Left>'      , opt = opt } ,
+  -- { mode = 'i' , key = '<M-l>'  , map = '<Right>'     , opt = opt } ,
+  -- { mode = 'i' , key = '<M-p>'  , map = '<Up>'        , opt = opt } ,
+  -- { mode = 'i' , key = '<M-n>'  , map = '<Down>'      , opt = opt } ,
+  --
+  -- { mode = 'i' , key = '<M-f>'  , map = '<S-Right>'   , opt = opt } ,
+  -- { mode = 'i' , key = '<M-b>'  , map = '<S-Left>'    , opt = opt } ,
+  --
+  -- { mode = 'i' , key = '<M-u>'  , map = "<Esc>u`'"    , opt = opt } ,
+  -- { mode = 'i' , key = '<M-CR>' , map = '<Esc>$a<CR>' , opt = opt } ,
 
     -- { mode='i', key = '<C-CR>', map = '<Esc>$a<CR>', opt=opt },
 
